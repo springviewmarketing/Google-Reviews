@@ -134,7 +134,18 @@ function packChart(report) {
 
 /** Columns: the client's own week-by-week run. */
 function trendChart(report) {
-  const series = report.row.series.slice().reverse(); // oldest first, reading left to right
+  const all = report.row.series.slice().reverse(); // oldest first, reading left to right
+
+  // Start the chart where the tracking started.
+  //
+  // The report asks for twelve weeks, and a practice added three weeks ago has
+  // nine of them before anything was ever read. Those are not quiet weeks, they
+  // are weeks nobody looked, and drawing them as empty bars both wastes most of
+  // the chart and tells the practice they did nothing when in truth the data
+  // does not exist. Google publishes a live count and no history, so those
+  // weeks cannot be filled in later either.
+  const begins = all.findIndex((week) => week.total !== null);
+  const series = begins === -1 ? [] : all.slice(begins);
   if (series.filter((week) => week.newReviews !== null).length < 2) return '';
 
   const width = 700;
@@ -174,9 +185,10 @@ function trendChart(report) {
       const x0 = cx - barWidth / 2;
       const label = formatDate(week.weekEnding, { day: 'numeric', month: 'short' });
       if (week.newReviews === null) {
+        const firstEver = week.total !== null;
         return `
         <g class="bar-row">
-          <title>Week to ${esc(label)}: no reading taken</title>
+          <title>Week to ${esc(label)}: ${firstEver ? `first reading, ${num(week.total)} reviews, nothing before it to compare with` : 'no reading taken'}</title>
           <rect x="${x0}" y="${baseline - 2}" width="${barWidth}" height="2" fill="var(--muted)" opacity="0.5" />
           <text class="tick" x="${cx}" y="${height - 14}" text-anchor="middle">${esc(label)}</text>
         </g>`;
@@ -195,9 +207,13 @@ function trendChart(report) {
     })
     .join('');
 
+  const began = formatDate(series[0].weekEnding, { day: 'numeric', month: 'long', year: 'numeric' });
   return `
   <figure class="chart">
-    <figcaption><h3>${esc(report.client.name)}, new reviews week by week</h3></figcaption>
+    <figcaption>
+      <h3>${esc(report.client.name)}, new reviews week by week</h3>
+      <p class="legend">Tracking began ${esc(began)}. Reviews earned before then are in the total, but week by week figures only exist from that date.</p>
+    </figcaption>
     <div class="scroller"><svg viewBox="-10 -2 ${width + 20} ${height + 4}" role="img" aria-label="New reviews per week for ${esc(report.client.name)}. Every value is listed in the table below.">
       ${grid}
       ${columns}
