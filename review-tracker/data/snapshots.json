@@ -673,6 +673,214 @@
           "status": "ok"
         }
       }
+    },
+    {
+      "takenAt": "2026-10-05T01:01:35.760Z",
+      "places": {
+        "ChIJ1ZvvVgCBeUgRqcCb0rHUDLI": {
+          "name": "Kemp & Kerrigan Opticians",
+          "totalReviews": 23,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJU810U1h4eUgR200onRs8cRI": {
+          "name": "Martyn Kemp Opticians",
+          "totalReviews": 25,
+          "rating": 4.5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJs4v883aCeUgRQTNYM4M3MBQ": {
+          "name": "Sheffield Vision Centre",
+          "totalReviews": 29,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJJypqR5N4eUgR3FByjSTsBh0": {
+          "name": "Premier Eyecare Opticians Sheffield",
+          "totalReviews": 28,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJWyp6wGKCeUgRgVScnxZh_28": {
+          "name": "Harveys Opticians",
+          "totalReviews": 28,
+          "rating": 4.8,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJKaT7tOp4eUgRCnIta4ae73A": {
+          "name": "Martin Johnson Opticians Ltd",
+          "totalReviews": 41,
+          "rating": 4.6,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJfzmz3HSCeUgRJsr4_0QD86E": {
+          "name": "Alex Gage Family Optometrist",
+          "totalReviews": 54,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJAZaWbhaCeUgRmWFBFovLrto": {
+          "name": "David Inman Bespoke Opticians",
+          "totalReviews": 57,
+          "rating": 4.8,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJh_iRSAuCeUgR5wP9mZLoP4E": {
+          "name": "David Inman Bespoke Opticians",
+          "totalReviews": 61,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJe6OIEIKCeUgRAAoaGmo_Y68": {
+          "name": "Bird Opticians",
+          "totalReviews": 64,
+          "rating": 4.8,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJjzLae4uDeUgRljOwiL8z3QU": {
+          "name": "Lorraine Bonete Opticians",
+          "totalReviews": 79,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJHbD_FLubeUgRvos7zInLEm0": {
+          "name": "Murgatroyd Holmes Opticians",
+          "totalReviews": 28,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJf4shtjqFeUgRaIEqMy3cru0": {
+          "name": "Elliott & Heath Opticians and Audiologists",
+          "totalReviews": 35,
+          "rating": 4.7,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJM1M5b-qZeUgRzdmRq0NRK9I": {
+          "name": "Parker Opticians",
+          "totalReviews": 83,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJ_VrTJjeFeUgRR-xNjCdtCMk": {
+          "name": "Insight Opticians",
+          "totalReviews": 108,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJI7dXEMWFeUgR9YN8jf3-ZQc": {
+          "name": "Oculi Opticians",
+          "totalReviews": 23,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJP380ZjeFeUgRyjZJTcs382E": {
+          "name": "Watson & Jenkins Opticians Ltd",
+          "totalReviews": 21,
+          "rating": 4.6,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJu6_iO-CYeUgRyrqYua_esYE": {
+          "name": "Portland Optical Group",
+          "totalReviews": 8,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJQwZWJ05zeUgRQ714j_cNuSM": {
+          "name": "Murgatroyd Opticians Ltd",
+          "totalReviews": 12,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJUdUfea51eUgR9tfX5Fuxdn0": {
+          "name": "T English Opticians",
+          "totalReviews": 11,
+          "rating": 4.2,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJ7Z3iX9ANeUgRPi_c6Z-jkpE": {
+          "name": "Priority Eyecare",
+          "totalReviews": 16,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJOaFZLbxzeUgRDMzyAp3OWdE": {
+          "name": "Parkhurst and Co Styling Opticians",
+          "totalReviews": 22,
+          "rating": 4.8,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJowdhiaJzeUgR71WBv8ktbTA": {
+          "name": "Moorhouse Opticians",
+          "totalReviews": 39,
+          "rating": 5,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJ14hlG651eUgRlKygWMbRsXs": {
+          "name": "Wickersley Eye Clinic",
+          "totalReviews": 47,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJv3h2FnBxeUgR_LSl2KObTzA": {
+          "name": "Staples Opticians & Hearing Care",
+          "totalReviews": 91,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJmVWDaNANeUgRWTnO4aRrRY0": {
+          "name": "Cotler & Bell Opticians",
+          "totalReviews": 101,
+          "rating": 4.8,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJOzbSYd4KeUgRFQlQhdWA86I": {
+          "name": "Dudley & Severn Opticians",
+          "totalReviews": 10,
+          "rating": 4.9,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJJ2nHst4KeUgRGh3ajwA0Gg4": {
+          "name": "BRUMPTON OPTICIANS LTD",
+          "totalReviews": 9,
+          "rating": 4.4,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        },
+        "ChIJTw4EG7J2eUgRrxaHKXorEDg": {
+          "name": "Martyn Kemp Opticians",
+          "totalReviews": 9,
+          "rating": 4.6,
+          "businessStatus": "OPERATIONAL",
+          "status": "ok"
+        }
+      }
     }
   ]
 }
