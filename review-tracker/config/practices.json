@@ -54,7 +54,8 @@
           "placeId": "ChIJjzLae4uDeUgRljOwiL8z3QU"
         }
       ],
-      "slug": "kemp-kerrigan"
+      "slug": "kemp-kerrigan",
+      "brand": "kemp-kerrigan"
     },
     {
       "id": "murgatroyd-holmes-opticians",
@@ -155,6 +156,17 @@
       "accent": "#33cccc",
       "onPrimary": "#ffffff",
       "font": "Montserrat"
+    },
+    "kemp-kerrigan": {
+      "name": "Kemp & Kerrigan Opticians",
+      "slug": "kemp-kerrigan",
+      "logo": "brand/kemp-kerrigan.png",
+      "primary": "#262020",
+      "accent": "#cd9d6d",
+      "onPrimary": "#ffffff",
+      "seriesLight": "#8a5a2e",
+      "seriesDark": "#cd9d6d",
+      "font": "Source Sans 3"
     }
   }
 }
