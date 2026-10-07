@@ -516,19 +516,31 @@ function brandTokens(brand) {
     const n = parseInt(h.length === 3 ? h.split('').map((c) => c + c).join('') : h, 16);
     return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
   };
+
+  // Which brand colour carries the data, per theme.
+  //
+  // Defaulting the pale theme to the brand's primary and the dark theme to its
+  // accent works when a brand is a dark colour plus a bright one, as Murgatroyd
+  // is. It does not always: Kemp & Kerrigan's primary is a near black charcoal,
+  // which as a bar would be indistinguishable from the body text, and their tan
+  // is documented in their own stylesheet as safe only on charcoal. Their brand
+  // supplies a third, darker tan for exactly this job, so a brand can name the
+  // colour for each theme rather than having it inferred.
+  const seriesLight = brand.seriesLight ?? brand.primary;
+  const seriesDark = brand.seriesDark ?? brand.accent;
   return `
   :root {
     --brand-primary: ${brand.primary};
     --brand-accent: ${brand.accent};
     --brand-on-primary: ${brand.onPrimary ?? '#ffffff'};
-    --series-you: ${brand.primary};
-    --you-wash: ${wash(brand.primary, 0.07)};
+    --series-you: ${seriesLight};
+    --you-wash: ${wash(seriesLight, 0.07)};
     --font-brand: ${brand.font ? `"${brand.font}", ` : ''}system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root:where(:not([data-theme="light"])) {
-      --series-you: ${brand.accent};
-      --you-wash: ${wash(brand.accent, 0.12)};
+      --series-you: ${seriesDark};
+      --you-wash: ${wash(seriesDark, 0.12)};
     }
   }
   body { font-family: var(--font-brand); }
