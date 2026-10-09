@@ -100,9 +100,9 @@ function packChart(report) {
   // Wide enough for a name carrying a branch in brackets. Truncating at 26
   // characters cut "David Inman Bespoke Opticians (1.6mi)" back to "David Inman
   // Bespoke Optic…", which removed the only thing telling two branches apart.
-  const labelWidth = 270;
+  const labelWidth = 290;
   const valueWidth = 64; // room for "108 +3"
-  const width = 860;
+  const width = 880;
   const height = ordered.length * rowHeight + 26;
   const plotLeft = labelWidth + 10;
   const plotRight = width - valueWidth;
@@ -119,7 +119,7 @@ function packChart(report) {
       // The client's own row is bold, so it sets the widest the label can get.
       // Truncation plus the viewBox gutter below has to cover that, or the
       // practice reading the page finds its own name clipped.
-      const name = row.name.length > 40 ? `${row.name.slice(0, 39)}…` : row.name;
+      const name = row.name.length > 44 ? `${row.name.slice(0, 43)}…` : row.name;
       const href = mapsLink(row.placeId);
       const gained = row.newReviews > 0 ? row.newReviews : null;
       const midY = barY + barHeight / 2 + 4;
@@ -143,7 +143,7 @@ function packChart(report) {
         <span class="key">A green figure is what they added this week.</span>
       </p>
     </figcaption>
-    <div class="scroller"><svg viewBox="-26 -2 ${width + 40} ${height + 4}" role="img" aria-label="Total Google reviews for every practice nearby, ranked. Every value is listed in the table below.">
+    <div class="scroller"><svg viewBox="-30 -2 ${width + 44} ${height + 4}" role="img" aria-label="Total Google reviews for every practice nearby, ranked. Every value is listed in the table below.">
       <line x1="${plotLeft}" y1="2" x2="${plotLeft}" y2="${height - 22}" stroke="var(--baseline)" stroke-width="1" />
       ${bars}
     </svg></div>
