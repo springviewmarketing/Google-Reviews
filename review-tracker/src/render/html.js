@@ -33,6 +33,20 @@ const ordinal = (n) => {
   return `${n}${['th', 'st', 'nd', 'rd'][n % 10] ?? 'th'}`;
 };
 
+
+/**
+ * The Google listing for a place, from the ID the tracker already holds.
+ *
+ * This is the honest answer to "which David Inman is that?". The config can
+ * only disambiguate by appending something to the name, which is guesswork
+ * dressed as fact; the listing itself has the address, the photos and the
+ * reviews, so one click settles it. Nothing is fetched or stored to build it:
+ * the place ID is already in the config and this is Google's documented format
+ * for turning one back into a link.
+ */
+const mapsLink = (placeId) =>
+  placeId ? `https://www.google.com/maps/place/?q=place_id:${encodeURIComponent(placeId)}` : null;
+
 /**
  * A horizontal bar: square where it meets the baseline at `baseX`, rounded at
  * the data end at `tipX`. Returns '' for a bar too short to draw.
@@ -83,9 +97,12 @@ function packChart(report) {
   const ordered = rows.slice().sort((a, b) => b.total - a.total);
   const rowHeight = 34;
   const barHeight = 22; // capped under 24px; the band's leftover is air
-  const labelWidth = 186;
+  // Wide enough for a name carrying a branch in brackets. Truncating at 26
+  // characters cut "David Inman Bespoke Opticians (1.6mi)" back to "David Inman
+  // Bespoke Optic…", which removed the only thing telling two branches apart.
+  const labelWidth = 270;
   const valueWidth = 64; // room for "108 +3"
-  const width = 700;
+  const width = 860;
   const height = ordered.length * rowHeight + 26;
   const plotLeft = labelWidth + 10;
   const plotRight = width - valueWidth;
@@ -102,13 +119,14 @@ function packChart(report) {
       // The client's own row is bold, so it sets the widest the label can get.
       // Truncation plus the viewBox gutter below has to cover that, or the
       // practice reading the page finds its own name clipped.
-      const name = row.name.length > 26 ? `${row.name.slice(0, 25)}…` : row.name;
+      const name = row.name.length > 40 ? `${row.name.slice(0, 39)}…` : row.name;
+      const href = mapsLink(row.placeId);
       const gained = row.newReviews > 0 ? row.newReviews : null;
       const midY = barY + barHeight / 2 + 4;
       return `
       <g class="bar-row">
-        <title>${esc(row.name)}: ${num(row.total)} reviews in total${gained ? `, ${signed(row.newReviews)} this week` : ''}</title>
-        <text class="axis-label${row.isClient ? ' is-you' : ''}" x="${labelWidth}" y="${midY}" text-anchor="end">${esc(name)}</text>
+        <title>${esc(row.name)}: ${num(row.total)} reviews in total${gained ? `, ${signed(row.newReviews)} this week` : ''}${href ? '. Opens their Google listing.' : ''}</title>
+        ${href ? `<a href="${esc(href)}" target="_blank" rel="noopener">` : ''}<text class="axis-label${row.isClient ? ' is-you' : ''}" x="${labelWidth}" y="${midY}" text-anchor="end">${esc(name)}</text>${href ? '</a>' : ''}
         ${path ? `<path d="${path}" fill="${fill}" />` : `<rect x="${plotLeft - 1}" y="${barY}" width="2" height="${barHeight}" fill="var(--baseline)" />`}
         <text class="bar-value" x="${scale(row.total) + 8}" y="${midY}" text-anchor="start">${num(row.total)}${gained ? `<tspan class="gain"> +${gained}</tspan>` : ''}</text>
       </g>`;
@@ -281,7 +299,7 @@ function leaderboard(report) {
       (row) => `
       <tr${row.isClient ? ' class="is-you"' : ''}>
         <td class="rank">${row.rank ?? ''}</td>
-        <td>${esc(row.name)}${row.isClient ? ' <span class="you-tag">you</span>' : ''}</td>
+        <td>${mapsLink(row.placeId) ? `<a class="place" href="${esc(mapsLink(row.placeId))}" target="_blank" rel="noopener">${esc(row.name)}</a>` : esc(row.name)}${row.isClient ? ' <span class="you-tag">you</span>' : ''}</td>
         <td class="numeric">${num(row.total)}</td>
         <td class="numeric">${row.rating === null ? 'n/a' : row.rating.toFixed(1)}</td>
         <td class="numeric ${row.newReviews > 0 ? 'up' : ''}">${row.newReviews === null ? 'n/a' : signed(row.newReviews)}</td>
@@ -401,6 +419,10 @@ const STYLE = `
   .axis-label.is-you { fill: var(--text-primary); font-weight: 600; }
   .bar-value { font-size: 12px; font-weight: 600; fill: var(--text-primary); font-variant-numeric: tabular-nums; }
   .bar-value .gain { fill: var(--good-ink); }
+  svg a text { cursor: pointer; }
+  svg a:hover text, svg a:focus-visible text { fill: var(--series-you); text-decoration: underline; }
+  .board a.place { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+  .board a.place:hover, .board a.place:focus-visible { color: var(--series-you); border-bottom-color: currentColor; }
   .tick { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
   .bar-row:hover path, .bar-row:hover rect { opacity: 0.82; }
 

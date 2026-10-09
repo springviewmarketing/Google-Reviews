@@ -115,6 +115,10 @@
   .axis-label.is-you { fill: var(--text-primary); font-weight: 600; }
   .bar-value { font-size: 12px; font-weight: 600; fill: var(--text-primary); font-variant-numeric: tabular-nums; }
   .bar-value .gain { fill: var(--good-ink); }
+  svg a text { cursor: pointer; }
+  svg a:hover text, svg a:focus-visible text { fill: var(--series-you); text-decoration: underline; }
+  .board a.place { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+  .board a.place:hover, .board a.place:focus-visible { color: var(--series-you); border-bottom-color: currentColor; }
   .tick { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
   .bar-row:hover path, .bar-row:hover rect { opacity: 0.82; }
 
@@ -185,74 +189,74 @@
         <span class="key">A green figure is what they added this week.</span>
       </p>
     </figcaption>
-    <div class="scroller"><svg viewBox="-26 -2 740 404" role="img" aria-label="Total Google reviews for every practice nearby, ranked. Every value is listed in the table below.">
-      <line x1="196" y1="2" x2="196" y2="378" stroke="var(--baseline)" stroke-width="1" />
+    <div class="scroller"><svg viewBox="-26 -2 900 404" role="img" aria-label="Total Google reviews for every practice nearby, ranked. Every value is listed in the table below.">
+      <line x1="280" y1="2" x2="280" y2="378" stroke="var(--baseline)" stroke-width="1" />
       
       <g class="bar-row">
-        <title>Lorraine Bonete Opticians: 79 reviews in total</title>
-        <text class="axis-label" x="186" y="23" text-anchor="end">Lorraine Bonete Opticians</text>
-        <path d="M196,8 H632 A4,4 0 0 1 636,12 V26 A4,4 0 0 1 632,30 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="644" y="23" text-anchor="start">79</text>
+        <title>Lorraine Bonete Opticians: 79 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJjzLae4uDeUgRljOwiL8z3QU" target="_blank" rel="noopener"><text class="axis-label" x="270" y="23" text-anchor="end">Lorraine Bonete Opticians</text></a>
+        <path d="M280,8 H792 A4,4 0 0 1 796,12 V26 A4,4 0 0 1 792,30 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="804" y="23" text-anchor="start">79</text>
       </g>
       <g class="bar-row">
-        <title>Bird Opticians: 64 reviews in total</title>
-        <text class="axis-label" x="186" y="57" text-anchor="end">Bird Opticians</text>
-        <path d="M196,42 H548.4556962025316 A4,4 0 0 1 552.4556962025316,46 V60 A4,4 0 0 1 548.4556962025316,64 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="560.4556962025316" y="57" text-anchor="start">64</text>
+        <title>Bird Opticians: 64 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJe6OIEIKCeUgRAAoaGmo_Y68" target="_blank" rel="noopener"><text class="axis-label" x="270" y="57" text-anchor="end">Bird Opticians</text></a>
+        <path d="M280,42 H694.0253164556962 A4,4 0 0 1 698.0253164556962,46 V60 A4,4 0 0 1 694.0253164556962,64 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="706.0253164556962" y="57" text-anchor="start">64</text>
       </g>
       <g class="bar-row">
-        <title>David Inman Bespoke Opticians (2mi): 61 reviews in total, +2 this week</title>
-        <text class="axis-label" x="186" y="91" text-anchor="end">David Inman Bespoke Optic…</text>
-        <path d="M196,76 H531.746835443038 A4,4 0 0 1 535.746835443038,80 V94 A4,4 0 0 1 531.746835443038,98 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="543.746835443038" y="91" text-anchor="start">61<tspan class="gain"> +2</tspan></text>
+        <title>David Inman Bespoke Opticians (2mi): 61 reviews in total, +2 this week. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJh_iRSAuCeUgR5wP9mZLoP4E" target="_blank" rel="noopener"><text class="axis-label" x="270" y="91" text-anchor="end">David Inman Bespoke Opticians (2mi)</text></a>
+        <path d="M280,76 H674.4303797468355 A4,4 0 0 1 678.4303797468355,80 V94 A4,4 0 0 1 674.4303797468355,98 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="686.4303797468355" y="91" text-anchor="start">61<tspan class="gain"> +2</tspan></text>
       </g>
       <g class="bar-row">
-        <title>David Inman Bespoke Opticians (1.6mi): 57 reviews in total</title>
-        <text class="axis-label" x="186" y="125" text-anchor="end">David Inman Bespoke Optic…</text>
-        <path d="M196,110 H509.4683544303798 A4,4 0 0 1 513.4683544303798,114 V128 A4,4 0 0 1 509.4683544303798,132 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="521.4683544303798" y="125" text-anchor="start">57</text>
+        <title>David Inman Bespoke Opticians (1.6mi): 57 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJAZaWbhaCeUgRmWFBFovLrto" target="_blank" rel="noopener"><text class="axis-label" x="270" y="125" text-anchor="end">David Inman Bespoke Opticians (1.6mi)</text></a>
+        <path d="M280,110 H648.3037974683543 A4,4 0 0 1 652.3037974683543,114 V128 A4,4 0 0 1 648.3037974683543,132 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="660.3037974683543" y="125" text-anchor="start">57</text>
       </g>
       <g class="bar-row">
-        <title>Alex Gage Family Optometrist (Sheffield): 54 reviews in total</title>
-        <text class="axis-label" x="186" y="159" text-anchor="end">Alex Gage Family Optometr…</text>
-        <path d="M196,144 H492.75949367088606 A4,4 0 0 1 496.75949367088606,148 V162 A4,4 0 0 1 492.75949367088606,166 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="504.75949367088606" y="159" text-anchor="start">54</text>
+        <title>Alex Gage Family Optometrist (Sheffield): 54 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJfzmz3HSCeUgRJsr4_0QD86E" target="_blank" rel="noopener"><text class="axis-label" x="270" y="159" text-anchor="end">Alex Gage Family Optometrist (Sheffield)</text></a>
+        <path d="M280,144 H628.7088607594936 A4,4 0 0 1 632.7088607594936,148 V162 A4,4 0 0 1 628.7088607594936,166 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="640.7088607594936" y="159" text-anchor="start">54</text>
       </g>
       <g class="bar-row">
-        <title>Martin Johnson Opticians Ltd: 41 reviews in total</title>
-        <text class="axis-label" x="186" y="193" text-anchor="end">Martin Johnson Opticians …</text>
-        <path d="M196,178 H420.3544303797469 A4,4 0 0 1 424.3544303797469,182 V196 A4,4 0 0 1 420.3544303797469,200 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="432.3544303797469" y="193" text-anchor="start">41</text>
+        <title>Martin Johnson Opticians Ltd: 41 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJKaT7tOp4eUgRCnIta4ae73A" target="_blank" rel="noopener"><text class="axis-label" x="270" y="193" text-anchor="end">Martin Johnson Opticians Ltd</text></a>
+        <path d="M280,178 H543.7974683544303 A4,4 0 0 1 547.7974683544303,182 V196 A4,4 0 0 1 543.7974683544303,200 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="555.7974683544303" y="193" text-anchor="start">41</text>
       </g>
       <g class="bar-row">
-        <title>Sheffield Vision Centre: 29 reviews in total, +1 this week</title>
-        <text class="axis-label" x="186" y="227" text-anchor="end">Sheffield Vision Centre</text>
-        <path d="M196,212 H353.5189873417721 A4,4 0 0 1 357.5189873417721,216 V230 A4,4 0 0 1 353.5189873417721,234 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="365.5189873417721" y="227" text-anchor="start">29<tspan class="gain"> +1</tspan></text>
+        <title>Sheffield Vision Centre: 29 reviews in total, +1 this week. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJs4v883aCeUgRQTNYM4M3MBQ" target="_blank" rel="noopener"><text class="axis-label" x="270" y="227" text-anchor="end">Sheffield Vision Centre</text></a>
+        <path d="M280,212 H465.4177215189874 A4,4 0 0 1 469.4177215189874,216 V230 A4,4 0 0 1 465.4177215189874,234 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="477.4177215189874" y="227" text-anchor="start">29<tspan class="gain"> +1</tspan></text>
       </g>
       <g class="bar-row">
-        <title>Premier Eyecare Opticians Sheffield: 28 reviews in total</title>
-        <text class="axis-label" x="186" y="261" text-anchor="end">Premier Eyecare Opticians…</text>
-        <path d="M196,246 H347.9493670886076 A4,4 0 0 1 351.9493670886076,250 V264 A4,4 0 0 1 347.9493670886076,268 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="359.9493670886076" y="261" text-anchor="start">28</text>
+        <title>Premier Eyecare Opticians Sheffield: 28 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJJypqR5N4eUgR3FByjSTsBh0" target="_blank" rel="noopener"><text class="axis-label" x="270" y="261" text-anchor="end">Premier Eyecare Opticians Sheffield</text></a>
+        <path d="M280,246 H458.88607594936707 A4,4 0 0 1 462.88607594936707,250 V264 A4,4 0 0 1 458.88607594936707,268 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="470.88607594936707" y="261" text-anchor="start">28</text>
       </g>
       <g class="bar-row">
-        <title>Harveys Opticians: 28 reviews in total</title>
-        <text class="axis-label" x="186" y="295" text-anchor="end">Harveys Opticians</text>
-        <path d="M196,280 H347.9493670886076 A4,4 0 0 1 351.9493670886076,284 V298 A4,4 0 0 1 347.9493670886076,302 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="359.9493670886076" y="295" text-anchor="start">28</text>
+        <title>Harveys Opticians: 28 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJWyp6wGKCeUgRgVScnxZh_28" target="_blank" rel="noopener"><text class="axis-label" x="270" y="295" text-anchor="end">Harveys Opticians</text></a>
+        <path d="M280,280 H458.88607594936707 A4,4 0 0 1 462.88607594936707,284 V298 A4,4 0 0 1 458.88607594936707,302 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="470.88607594936707" y="295" text-anchor="start">28</text>
       </g>
       <g class="bar-row">
-        <title>Martyn Kemp Opticians (4.5mi): 25 reviews in total</title>
-        <text class="axis-label" x="186" y="329" text-anchor="end">Martyn Kemp Opticians (4.…</text>
-        <path d="M196,314 H331.24050632911394 A4,4 0 0 1 335.24050632911394,318 V332 A4,4 0 0 1 331.24050632911394,336 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="343.24050632911394" y="329" text-anchor="start">25</text>
+        <title>Martyn Kemp Opticians (4.5mi): 25 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJU810U1h4eUgR200onRs8cRI" target="_blank" rel="noopener"><text class="axis-label" x="270" y="329" text-anchor="end">Martyn Kemp Opticians (4.5mi)</text></a>
+        <path d="M280,314 H439.29113924050637 A4,4 0 0 1 443.29113924050637,318 V332 A4,4 0 0 1 439.29113924050637,336 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="451.29113924050637" y="329" text-anchor="start">25</text>
       </g>
       <g class="bar-row">
-        <title>Kemp &amp; Kerrigan Opticians: 23 reviews in total</title>
-        <text class="axis-label is-you" x="186" y="363" text-anchor="end">Kemp &amp; Kerrigan Opticians</text>
-        <path d="M196,348 H320.1012658227848 A4,4 0 0 1 324.1012658227848,352 V366 A4,4 0 0 1 320.1012658227848,370 H196 Z" fill="var(--series-you)" />
-        <text class="bar-value" x="332.1012658227848" y="363" text-anchor="start">23</text>
+        <title>Kemp &amp; Kerrigan Opticians: 23 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ1ZvvVgCBeUgRqcCb0rHUDLI" target="_blank" rel="noopener"><text class="axis-label is-you" x="270" y="363" text-anchor="end">Kemp &amp; Kerrigan Opticians</text></a>
+        <path d="M280,348 H426.22784810126586 A4,4 0 0 1 430.22784810126586,352 V366 A4,4 0 0 1 426.22784810126586,370 H280 Z" fill="var(--series-you)" />
+        <text class="bar-value" x="438.22784810126586" y="363" text-anchor="start">23</text>
       </g>
     </svg></div>
   </figure>
@@ -308,7 +312,7 @@
     <tbody>
       <tr>
         <td class="rank">1</td>
-        <td>Lorraine Bonete Opticians</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJjzLae4uDeUgRljOwiL8z3QU" target="_blank" rel="noopener">Lorraine Bonete Opticians</a></td>
         <td class="numeric">79</td>
         <td class="numeric">5.0</td>
         <td class="numeric ">0</td>
@@ -316,7 +320,7 @@
       </tr>
       <tr>
         <td class="rank">2</td>
-        <td>Bird Opticians</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJe6OIEIKCeUgRAAoaGmo_Y68" target="_blank" rel="noopener">Bird Opticians</a></td>
         <td class="numeric">64</td>
         <td class="numeric">4.8</td>
         <td class="numeric ">0</td>
@@ -324,7 +328,7 @@
       </tr>
       <tr>
         <td class="rank">3</td>
-        <td>David Inman Bespoke Opticians (2mi)</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJh_iRSAuCeUgR5wP9mZLoP4E" target="_blank" rel="noopener">David Inman Bespoke Opticians (2mi)</a></td>
         <td class="numeric">61</td>
         <td class="numeric">4.9</td>
         <td class="numeric up">+2</td>
@@ -332,7 +336,7 @@
       </tr>
       <tr>
         <td class="rank">4</td>
-        <td>David Inman Bespoke Opticians (1.6mi)</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJAZaWbhaCeUgRmWFBFovLrto" target="_blank" rel="noopener">David Inman Bespoke Opticians (1.6mi)</a></td>
         <td class="numeric">57</td>
         <td class="numeric">4.8</td>
         <td class="numeric ">0</td>
@@ -340,7 +344,7 @@
       </tr>
       <tr>
         <td class="rank">5</td>
-        <td>Alex Gage Family Optometrist (Sheffield)</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJfzmz3HSCeUgRJsr4_0QD86E" target="_blank" rel="noopener">Alex Gage Family Optometrist (Sheffield)</a></td>
         <td class="numeric">54</td>
         <td class="numeric">4.9</td>
         <td class="numeric ">0</td>
@@ -348,7 +352,7 @@
       </tr>
       <tr>
         <td class="rank">6</td>
-        <td>Martin Johnson Opticians Ltd</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJKaT7tOp4eUgRCnIta4ae73A" target="_blank" rel="noopener">Martin Johnson Opticians Ltd</a></td>
         <td class="numeric">41</td>
         <td class="numeric">4.6</td>
         <td class="numeric ">0</td>
@@ -356,7 +360,7 @@
       </tr>
       <tr>
         <td class="rank">7</td>
-        <td>Sheffield Vision Centre</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJs4v883aCeUgRQTNYM4M3MBQ" target="_blank" rel="noopener">Sheffield Vision Centre</a></td>
         <td class="numeric">29</td>
         <td class="numeric">4.9</td>
         <td class="numeric up">+1</td>
@@ -364,7 +368,7 @@
       </tr>
       <tr>
         <td class="rank">8</td>
-        <td>Premier Eyecare Opticians Sheffield</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJJypqR5N4eUgR3FByjSTsBh0" target="_blank" rel="noopener">Premier Eyecare Opticians Sheffield</a></td>
         <td class="numeric">28</td>
         <td class="numeric">4.9</td>
         <td class="numeric ">0</td>
@@ -372,7 +376,7 @@
       </tr>
       <tr>
         <td class="rank">9</td>
-        <td>Harveys Opticians</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJWyp6wGKCeUgRgVScnxZh_28" target="_blank" rel="noopener">Harveys Opticians</a></td>
         <td class="numeric">28</td>
         <td class="numeric">4.8</td>
         <td class="numeric ">0</td>
@@ -380,7 +384,7 @@
       </tr>
       <tr>
         <td class="rank">10</td>
-        <td>Martyn Kemp Opticians (4.5mi)</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJU810U1h4eUgR200onRs8cRI" target="_blank" rel="noopener">Martyn Kemp Opticians (4.5mi)</a></td>
         <td class="numeric">25</td>
         <td class="numeric">4.5</td>
         <td class="numeric ">0</td>
@@ -388,7 +392,7 @@
       </tr>
       <tr class="is-you">
         <td class="rank">11</td>
-        <td>Kemp &amp; Kerrigan Opticians <span class="you-tag">you</span></td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJ1ZvvVgCBeUgRqcCb0rHUDLI" target="_blank" rel="noopener">Kemp &amp; Kerrigan Opticians</a> <span class="you-tag">you</span></td>
         <td class="numeric">23</td>
         <td class="numeric">5.0</td>
         <td class="numeric ">0</td>

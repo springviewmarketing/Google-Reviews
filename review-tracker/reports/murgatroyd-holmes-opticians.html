@@ -115,6 +115,10 @@
   .axis-label.is-you { fill: var(--text-primary); font-weight: 600; }
   .bar-value { font-size: 12px; font-weight: 600; fill: var(--text-primary); font-variant-numeric: tabular-nums; }
   .bar-value .gain { fill: var(--good-ink); }
+  svg a text { cursor: pointer; }
+  svg a:hover text, svg a:focus-visible text { fill: var(--series-you); text-decoration: underline; }
+  .board a.place { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+  .board a.place:hover, .board a.place:focus-visible { color: var(--series-you); border-bottom-color: currentColor; }
   .tick { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
   .bar-row:hover path, .bar-row:hover rect { opacity: 0.82; }
 
@@ -185,50 +189,50 @@
         <span class="key">A green figure is what they added this week.</span>
       </p>
     </figcaption>
-    <div class="scroller"><svg viewBox="-26 -2 740 268" role="img" aria-label="Total Google reviews for every practice nearby, ranked. Every value is listed in the table below.">
-      <line x1="196" y1="2" x2="196" y2="242" stroke="var(--baseline)" stroke-width="1" />
+    <div class="scroller"><svg viewBox="-26 -2 900 268" role="img" aria-label="Total Google reviews for every practice nearby, ranked. Every value is listed in the table below.">
+      <line x1="280" y1="2" x2="280" y2="242" stroke="var(--baseline)" stroke-width="1" />
       
       <g class="bar-row">
-        <title>Insight Opticians: 108 reviews in total</title>
-        <text class="axis-label" x="186" y="23" text-anchor="end">Insight Opticians</text>
-        <path d="M196,8 H632 A4,4 0 0 1 636,12 V26 A4,4 0 0 1 632,30 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="644" y="23" text-anchor="start">108</text>
+        <title>Insight Opticians: 108 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ_VrTJjeFeUgRR-xNjCdtCMk" target="_blank" rel="noopener"><text class="axis-label" x="270" y="23" text-anchor="end">Insight Opticians</text></a>
+        <path d="M280,8 H792 A4,4 0 0 1 796,12 V26 A4,4 0 0 1 792,30 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="804" y="23" text-anchor="start">108</text>
       </g>
       <g class="bar-row">
-        <title>Parker Opticians: 83 reviews in total, +4 this week</title>
-        <text class="axis-label" x="186" y="57" text-anchor="end">Parker Opticians</text>
-        <path d="M196,42 H530.1481481481482 A4,4 0 0 1 534.1481481481482,46 V60 A4,4 0 0 1 530.1481481481482,64 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="542.1481481481482" y="57" text-anchor="start">83<tspan class="gain"> +4</tspan></text>
+        <title>Parker Opticians: 83 reviews in total, +4 this week. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJM1M5b-qZeUgRzdmRq0NRK9I" target="_blank" rel="noopener"><text class="axis-label" x="270" y="57" text-anchor="end">Parker Opticians</text></a>
+        <path d="M280,42 H672.5555555555555 A4,4 0 0 1 676.5555555555555,46 V60 A4,4 0 0 1 672.5555555555555,64 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="684.5555555555555" y="57" text-anchor="start">83<tspan class="gain"> +4</tspan></text>
       </g>
       <g class="bar-row">
-        <title>Elliott &amp; Heath Opticians and Audiologists: 35 reviews in total</title>
-        <text class="axis-label" x="186" y="91" text-anchor="end">Elliott &amp; Heath Opticians…</text>
-        <path d="M196,76 H334.5925925925926 A4,4 0 0 1 338.5925925925926,80 V94 A4,4 0 0 1 334.5925925925926,98 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="346.5925925925926" y="91" text-anchor="start">35</text>
+        <title>Elliott &amp; Heath Opticians and Audiologists: 35 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJf4shtjqFeUgRaIEqMy3cru0" target="_blank" rel="noopener"><text class="axis-label" x="270" y="91" text-anchor="end">Elliott &amp; Heath Opticians and Audiologi…</text></a>
+        <path d="M280,76 H443.22222222222223 A4,4 0 0 1 447.22222222222223,80 V94 A4,4 0 0 1 443.22222222222223,98 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="455.22222222222223" y="91" text-anchor="start">35</text>
       </g>
       <g class="bar-row">
-        <title>Murgatroyd Holmes Opticians: 28 reviews in total, +2 this week</title>
-        <text class="axis-label is-you" x="186" y="125" text-anchor="end">Murgatroyd Holmes Opticia…</text>
-        <path d="M196,110 H306.0740740740741 A4,4 0 0 1 310.0740740740741,114 V128 A4,4 0 0 1 306.0740740740741,132 H196 Z" fill="var(--series-you)" />
-        <text class="bar-value" x="318.0740740740741" y="125" text-anchor="start">28<tspan class="gain"> +2</tspan></text>
+        <title>Murgatroyd Holmes Opticians: 28 reviews in total, +2 this week. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJHbD_FLubeUgRvos7zInLEm0" target="_blank" rel="noopener"><text class="axis-label is-you" x="270" y="125" text-anchor="end">Murgatroyd Holmes Opticians</text></a>
+        <path d="M280,110 H409.77777777777777 A4,4 0 0 1 413.77777777777777,114 V128 A4,4 0 0 1 409.77777777777777,132 H280 Z" fill="var(--series-you)" />
+        <text class="bar-value" x="421.77777777777777" y="125" text-anchor="start">28<tspan class="gain"> +2</tspan></text>
       </g>
       <g class="bar-row">
-        <title>Oculi Opticians: 23 reviews in total</title>
-        <text class="axis-label" x="186" y="159" text-anchor="end">Oculi Opticians</text>
-        <path d="M196,144 H285.7037037037037 A4,4 0 0 1 289.7037037037037,148 V162 A4,4 0 0 1 285.7037037037037,166 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="297.7037037037037" y="159" text-anchor="start">23</text>
+        <title>Oculi Opticians: 23 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJI7dXEMWFeUgR9YN8jf3-ZQc" target="_blank" rel="noopener"><text class="axis-label" x="270" y="159" text-anchor="end">Oculi Opticians</text></a>
+        <path d="M280,144 H385.8888888888889 A4,4 0 0 1 389.8888888888889,148 V162 A4,4 0 0 1 385.8888888888889,166 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="397.8888888888889" y="159" text-anchor="start">23</text>
       </g>
       <g class="bar-row">
-        <title>Watson &amp; Jenkins Opticians Ltd: 21 reviews in total</title>
-        <text class="axis-label" x="186" y="193" text-anchor="end">Watson &amp; Jenkins Optician…</text>
-        <path d="M196,178 H277.55555555555554 A4,4 0 0 1 281.55555555555554,182 V196 A4,4 0 0 1 277.55555555555554,200 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="289.55555555555554" y="193" text-anchor="start">21</text>
+        <title>Watson &amp; Jenkins Opticians Ltd: 21 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJP380ZjeFeUgRyjZJTcs382E" target="_blank" rel="noopener"><text class="axis-label" x="270" y="193" text-anchor="end">Watson &amp; Jenkins Opticians Ltd</text></a>
+        <path d="M280,178 H376.3333333333333 A4,4 0 0 1 380.3333333333333,182 V196 A4,4 0 0 1 376.3333333333333,200 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="388.3333333333333" y="193" text-anchor="start">21</text>
       </g>
       <g class="bar-row">
-        <title>Portland Optical Group (Clowne): 8 reviews in total</title>
-        <text class="axis-label" x="186" y="227" text-anchor="end">Portland Optical Group (C…</text>
-        <path d="M196,212 H224.59259259259258 A4,4 0 0 1 228.59259259259258,216 V230 A4,4 0 0 1 224.59259259259258,234 H196 Z" fill="var(--series-them)" />
-        <text class="bar-value" x="236.59259259259258" y="227" text-anchor="start">8</text>
+        <title>Portland Optical Group (Clowne): 8 reviews in total. Opens their Google listing.</title>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJu6_iO-CYeUgRyrqYua_esYE" target="_blank" rel="noopener"><text class="axis-label" x="270" y="227" text-anchor="end">Portland Optical Group (Clowne)</text></a>
+        <path d="M280,212 H314.22222222222223 A4,4 0 0 1 318.22222222222223,216 V230 A4,4 0 0 1 314.22222222222223,234 H280 Z" fill="var(--series-them)" />
+        <text class="bar-value" x="326.22222222222223" y="227" text-anchor="start">8</text>
       </g>
     </svg></div>
   </figure>
@@ -284,7 +288,7 @@
     <tbody>
       <tr>
         <td class="rank">1</td>
-        <td>Insight Opticians</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJ_VrTJjeFeUgRR-xNjCdtCMk" target="_blank" rel="noopener">Insight Opticians</a></td>
         <td class="numeric">108</td>
         <td class="numeric">5.0</td>
         <td class="numeric ">0</td>
@@ -292,7 +296,7 @@
       </tr>
       <tr>
         <td class="rank">2</td>
-        <td>Parker Opticians</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJM1M5b-qZeUgRzdmRq0NRK9I" target="_blank" rel="noopener">Parker Opticians</a></td>
         <td class="numeric">83</td>
         <td class="numeric">4.9</td>
         <td class="numeric up">+4</td>
@@ -300,7 +304,7 @@
       </tr>
       <tr>
         <td class="rank">3</td>
-        <td>Elliott &amp; Heath Opticians and Audiologists</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJf4shtjqFeUgRaIEqMy3cru0" target="_blank" rel="noopener">Elliott &amp; Heath Opticians and Audiologists</a></td>
         <td class="numeric">35</td>
         <td class="numeric">4.7</td>
         <td class="numeric ">0</td>
@@ -308,7 +312,7 @@
       </tr>
       <tr class="is-you">
         <td class="rank">4</td>
-        <td>Murgatroyd Holmes Opticians <span class="you-tag">you</span></td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJHbD_FLubeUgRvos7zInLEm0" target="_blank" rel="noopener">Murgatroyd Holmes Opticians</a> <span class="you-tag">you</span></td>
         <td class="numeric">28</td>
         <td class="numeric">5.0</td>
         <td class="numeric up">+2</td>
@@ -316,7 +320,7 @@
       </tr>
       <tr>
         <td class="rank">5</td>
-        <td>Oculi Opticians</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJI7dXEMWFeUgR9YN8jf3-ZQc" target="_blank" rel="noopener">Oculi Opticians</a></td>
         <td class="numeric">23</td>
         <td class="numeric">5.0</td>
         <td class="numeric ">0</td>
@@ -324,7 +328,7 @@
       </tr>
       <tr>
         <td class="rank">6</td>
-        <td>Watson &amp; Jenkins Opticians Ltd</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJP380ZjeFeUgRyjZJTcs382E" target="_blank" rel="noopener">Watson &amp; Jenkins Opticians Ltd</a></td>
         <td class="numeric">21</td>
         <td class="numeric">4.6</td>
         <td class="numeric ">0</td>
@@ -332,7 +336,7 @@
       </tr>
       <tr>
         <td class="rank">7</td>
-        <td>Portland Optical Group (Clowne)</td>
+        <td><a class="place" href="https://www.google.com/maps/place/?q=place_id:ChIJu6_iO-CYeUgRyrqYua_esYE" target="_blank" rel="noopener">Portland Optical Group (Clowne)</a></td>
         <td class="numeric">8</td>
         <td class="numeric">5.0</td>
         <td class="numeric ">0</td>
