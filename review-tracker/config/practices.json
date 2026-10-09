@@ -14,12 +14,44 @@
       "searchTerm": "opticians near me",
       "competitors": [
         {
-          "name": "Martyn Kemp Opticians (4.5mi)",
-          "placeId": "ChIJU810U1h4eUgR200onRs8cRI"
+          "name": "Victoria J Smith Opticians",
+          "placeId": "ChIJ7zWoCjaCeUgRV2QYl0q5fHA"
         },
         {
-          "name": "Sheffield Vision Centre",
-          "placeId": "ChIJs4v883aCeUgRQTNYM4M3MBQ"
+          "name": "Ray-Lewis Opticians",
+          "placeId": "ChIJbybQEG6CeUgRX5lbcztPubQ"
+        },
+        {
+          "name": "Alex Gage Family Optometrist (Woodseats)",
+          "placeId": "ChIJb15AMFSCeUgRwgdOnVVBzMs"
+        },
+        {
+          "name": "Daybell and Choo",
+          "placeId": "ChIJ1zw7VWyCeUgRkvG-_32OKfY"
+        },
+        {
+          "name": "Lorraine Bonete Opticians",
+          "placeId": "ChIJjzLae4uDeUgRljOwiL8z3QU"
+        },
+        {
+          "name": "Bird Opticians",
+          "placeId": "ChIJe6OIEIKCeUgRAAoaGmo_Y68"
+        },
+        {
+          "name": "David Inman Bespoke Opticians (Fulwood)",
+          "placeId": "ChIJh_iRSAuCeUgR5wP9mZLoP4E"
+        },
+        {
+          "name": "David Inman Bespoke Opticians (Ecclesall)",
+          "placeId": "ChIJAZaWbhaCeUgRmWFBFovLrto"
+        },
+        {
+          "name": "Alex Gage Family Optometrist (Sandygate)",
+          "placeId": "ChIJfzmz3HSCeUgRJsr4_0QD86E"
+        },
+        {
+          "name": "Martin Johnson Opticians",
+          "placeId": "ChIJKaT7tOp4eUgRCnIta4ae73A"
         },
         {
           "name": "Premier Eyecare Opticians Sheffield",
@@ -30,28 +62,12 @@
           "placeId": "ChIJWyp6wGKCeUgRgVScnxZh_28"
         },
         {
-          "name": "Martin Johnson Opticians Ltd",
-          "placeId": "ChIJKaT7tOp4eUgRCnIta4ae73A"
+          "name": "Martyn Kemp Opticians (Herries Road)",
+          "placeId": "ChIJU810U1h4eUgR200onRs8cRI"
         },
         {
-          "name": "Alex Gage Family Optometrist (Sheffield)",
-          "placeId": "ChIJfzmz3HSCeUgRJsr4_0QD86E"
-        },
-        {
-          "name": "David Inman Bespoke Opticians (1.6mi)",
-          "placeId": "ChIJAZaWbhaCeUgRmWFBFovLrto"
-        },
-        {
-          "name": "David Inman Bespoke Opticians (2mi)",
-          "placeId": "ChIJh_iRSAuCeUgR5wP9mZLoP4E"
-        },
-        {
-          "name": "Bird Opticians",
-          "placeId": "ChIJe6OIEIKCeUgRAAoaGmo_Y68"
-        },
-        {
-          "name": "Lorraine Bonete Opticians",
-          "placeId": "ChIJjzLae4uDeUgRljOwiL8z3QU"
+          "name": "The Eye Place - Dore",
+          "placeId": "ChIJCzMbN3CBeUgRrZHVV-3qmsY"
         }
       ],
       "slug": "kemp-kerrigan",

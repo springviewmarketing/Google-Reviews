@@ -389,8 +389,12 @@ async function commandNearby(options) {
   });
 
   const chosen = new Set(ladder.map((p) => p.placeId));
+  // The place ID and address go on every line, not just the shortlisted ones.
+  // Curating the list by hand means picking practices the shortlist rejected,
+  // and that needs their IDs; the address is what tells four branches of the
+  // same practice apart, which a distance from the anchor never could.
   const line = (place, mark) =>
-    `  ${mark} ${String(place.miles).padStart(4)}mi  ${String(place.totalReviews).padStart(5)} reviews  ${String(place.rating ?? 'n/a').padStart(3)}*  ${place.name}`;
+    `  ${mark} ${String(place.miles).padStart(4)}mi  ${String(place.totalReviews).padStart(5)} reviews  ${String(place.rating ?? 'n/a').padStart(3)}*  ${place.name}\n        ${place.placeId}  ${place.address ?? 'no address'}`;
 
   const excluded = new Set([...chains, ...notOpticians].map((p) => p.placeId));
   const opticians = places.filter((place) => place.isOptician !== false && !excluded.has(place.placeId));
