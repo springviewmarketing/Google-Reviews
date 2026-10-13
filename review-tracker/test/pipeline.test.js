@@ -121,3 +121,55 @@ test('the whole pack failing to read still produces a report rather than throwin
   assert.match(html, /could not read this Google profile/);
   assert.match(html, /needs relinking/);
 });
+
+// The link from a practice's name to its Google listing.
+//
+// This is worth a test because the wrong format fails only on a phone, which
+// is where a practice is most likely to open the page, and passes every check
+// made on a laptop.
+test('a practice name links to its Google listing in a format phones honour', async () => {
+  const history = { version: 1, snapshots: [] };
+  for (const [at, counts] of [
+    ['2026-10-05T08:00:00.000Z', { 'p-us': 10, 'p-one': 20, 'p-two': 30 }],
+    ['2026-10-12T08:00:00.000Z', { 'p-us': 12, 'p-one': 20, 'p-two': 30 }],
+  ]) {
+    const results = await fetchAll(stub(counts), allPlaces(config));
+    addSnapshot(history, { takenAt: at, places: toPlaceMap(results) });
+  }
+  const [report] = buildAllReports(config, history, { asOf: '2026-10-12' });
+  const html = renderReport(report);
+
+  assert.ok(
+    html.includes('https://www.google.com/maps/search/?api=1&amp;query='),
+    'links must use the Maps URLs format, which resolves the same on web, Android and iOS'
+  );
+  assert.ok(html.includes('query_place_id=p-us'), 'the place ID decides which listing opens');
+  assert.ok(
+    !html.includes('q=place_id:'),
+    'the maps/place/?q=place_id: form is read as literal search text by the mobile Maps apps'
+  );
+});
+
+test('a branch label added by the config is not sent as part of the name', async () => {
+  const branched = validateConfig({
+    agency: { name: 'Spring View Marketing' },
+    clients: [
+      {
+        id: 'test-practice',
+        name: 'Test Practice',
+        placeId: 'p-us',
+        competitors: [{ name: 'Rival One (Fulwood)', placeId: 'p-one' }],
+      },
+    ],
+  });
+  const history = { version: 1, snapshots: [] };
+  for (const at of ['2026-10-05T08:00:00.000Z', '2026-10-12T08:00:00.000Z']) {
+    const results = await fetchAll(stub({ 'p-us': 10, 'p-one': 20 }), allPlaces(branched));
+    addSnapshot(history, { takenAt: at, places: toPlaceMap(results) });
+  }
+  const [report] = buildAllReports(branched, history, { asOf: '2026-10-12' });
+  const html = renderReport(report);
+
+  assert.ok(html.includes('query_place_id=p-one'), 'the branch still links somewhere');
+  assert.ok(!html.includes('Fulwood&amp;query_place_id'), '"(Fulwood)" is ours, not the business name');
+});
