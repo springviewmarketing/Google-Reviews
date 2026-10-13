@@ -40,12 +40,30 @@ const ordinal = (n) => {
  * This is the honest answer to "which David Inman is that?". The config can
  * only disambiguate by appending something to the name, which is guesswork
  * dressed as fact; the listing itself has the address, the photos and the
- * reviews, so one click settles it. Nothing is fetched or stored to build it:
- * the place ID is already in the config and this is Google's documented format
- * for turning one back into a link.
+ * reviews, so one click settles it. Nothing is fetched or stored to build it,
+ * because the place ID is already in the config.
+ *
+ * The format matters, and the obvious one is wrong. A link of the shape
+ * maps/place/?q=place_id:ID opens the right profile in a desktop browser, so it
+ * looks fine when you test it on a laptop. On a phone the Maps app takes the
+ * link and reads "place_id:ID" as words to search for, so the practice gets a
+ * search results page with the raw ID typed into the box. It fails exactly
+ * where the page is most likely to be opened.
+ *
+ * This is Google's Maps URLs format instead. The api=1 parameter is what tells
+ * Google to resolve the link the same way on the web, on Android and on iOS,
+ * and query_place_id is only honoured alongside a query, so the name is sent
+ * with it. The place ID decides which place opens; the name is the fallback.
  */
-const mapsLink = (placeId) =>
-  placeId ? `https://www.google.com/maps/place/?q=place_id:${encodeURIComponent(placeId)}` : null;
+const mapsLink = (placeId, name) => {
+  if (!placeId) return null;
+  // Branch labels this config adds, like "(Fulwood)", are ours and not part of
+  // the business's own name, so they come off before the name is sent.
+  const query = String(name ?? '')
+    .replace(/\s*\([^)]*\)\s*$/, '')
+    .trim();
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}&query_place_id=${encodeURIComponent(placeId)}`;
+};
 
 /**
  * A horizontal bar: square where it meets the baseline at `baseX`, rounded at
@@ -120,7 +138,7 @@ function packChart(report) {
       // Truncation plus the viewBox gutter below has to cover that, or the
       // practice reading the page finds its own name clipped.
       const name = row.name.length > 44 ? `${row.name.slice(0, 43)}…` : row.name;
-      const href = mapsLink(row.placeId);
+      const href = mapsLink(row.placeId, row.name);
       const gained = row.newReviews > 0 ? row.newReviews : null;
       const midY = barY + barHeight / 2 + 4;
       return `
@@ -299,7 +317,7 @@ function leaderboard(report) {
       (row) => `
       <tr${row.isClient ? ' class="is-you"' : ''}>
         <td class="rank">${row.rank ?? ''}</td>
-        <td>${mapsLink(row.placeId) ? `<a class="place" href="${esc(mapsLink(row.placeId))}" target="_blank" rel="noopener">${esc(row.name)}</a>` : esc(row.name)}${row.isClient ? ' <span class="you-tag">you</span>' : ''}</td>
+        <td>${mapsLink(row.placeId, row.name) ? `<a class="place" href="${esc(mapsLink(row.placeId, row.name))}" target="_blank" rel="noopener">${esc(row.name)}</a>` : esc(row.name)}${row.isClient ? ' <span class="you-tag">you</span>' : ''}</td>
         <td class="numeric">${num(row.total)}</td>
         <td class="numeric">${row.rating === null ? 'n/a' : row.rating.toFixed(1)}</td>
         <td class="numeric ${row.newReviews > 0 ? 'up' : ''}">${row.newReviews === null ? 'n/a' : signed(row.newReviews)}</td>
