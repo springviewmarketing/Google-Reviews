@@ -1,0 +1,1571 @@
+<title>Optician Review Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+
+<style>
+/* ============================================================
+   SPRING VIEW - Optician Review Scorecard
+   Palette and faces inherited from the opticians landing page.
+   Vermilion is the only shout. Green is state, not accent.
+   ============================================================ */
+
+:root{
+  --ink:#0A0A0A;
+  --bone:#F2F0EA;
+
+  --ground:#F2F0EA;
+  --surface:#FBFAF6;
+  --surface-2:#EAE7DE;
+  --text:#22211E;
+  --muted:#6E6E68;
+  --rule:#DAD6C9;
+  --rule-soft:#E4E0D5;
+  --accent:#FF3D19;
+  --on-accent:#0A0A0A;
+  --done:#14713F;
+  --done-soft:#E2EFE7;
+  --on-done:#FFFFFF;
+  --warn:#8A5A00;
+  --warn-soft:#F7EEDC;
+
+  --display:'Bricolage Grotesque','Arial Narrow',system-ui,sans-serif;
+  --text-face:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+
+  --pad:clamp(18px,4vw,48px);
+  --wrap:900px;
+}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E0E0D;
+    --surface:#171715;
+    --surface-2:#201F1C;
+    --text:#E9E6DE;
+    --muted:#9A9A93;
+    --rule:#2E2D29;
+    --rule-soft:#242320;
+    --accent:#FF4E2B;
+    --on-accent:#0A0A0A;
+    --done:#4FBF85;
+    --done-soft:#12251B;
+    --on-done:#0A0A0A;
+    --warn:#E0AC5B;
+    --warn-soft:#241C0E;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E0E0D;
+  --surface:#171715;
+  --surface-2:#201F1C;
+  --text:#E9E6DE;
+  --muted:#9A9A93;
+  --rule:#2E2D29;
+  --rule-soft:#242320;
+  --accent:#FF4E2B;
+  --on-accent:#0A0A0A;
+  --done:#4FBF85;
+  --done-soft:#12251B;
+  --on-done:#0A0A0A;
+  --warn:#E0AC5B;
+  --warn-soft:#241C0E;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--text);
+  font-family:var(--text-face);
+  font-size:clamp(15px,2.3vw,16.5px);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums;
+}
+
+h1,h2,h3,h4{font-family:var(--display);font-variation-settings:"wdth" 82;letter-spacing:-.025em;text-wrap:balance;margin:0;}
+
+.eyebrow{
+  font-family:var(--text-face);
+  font-size:11px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);margin:0;
+}
+
+/* ---------------- masthead ---------------- */
+.masthead{background:var(--ink);color:#C9C7C0;padding:clamp(30px,6vw,58px) var(--pad) clamp(26px,5vw,44px);}
+.in{max-width:var(--wrap);margin:0 auto;}
+.masthead .eyebrow{color:#8D8B84;}
+.masthead .eyebrow b{color:var(--accent);font-weight:600;}
+.masthead h1{color:var(--bone);font-weight:800;font-size:clamp(32px,6.4vw,62px);line-height:1.06;max-width:17ch;margin:14px 0 0;}
+.standfirst{max-width:60ch;margin:18px 0 0;color:#C9C7C0;font-size:clamp(15px,2.2vw,17px);}
+.standfirst strong{color:var(--bone);font-weight:600;}
+.masthead-meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin:24px 0 0;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.14);font-size:12.5px;color:#8D8B84;}
+.masthead-meta b{color:#C9C7C0;font-weight:600;}
+
+/* ---------------- sticky status bar ---------------- */
+.statusbar{
+  position:sticky;top:0;z-index:40;
+  background:var(--ink);color:var(--bone);
+  border-bottom:1px solid rgba(255,255,255,.14);
+  padding:9px var(--pad) 10px;
+}
+.host-expanded .statusbar{position:static;}
+.sb-in{max-width:var(--wrap);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.sb-score{display:flex;align-items:baseline;gap:5px;flex:0 0 auto;}
+.sb-num{font-family:var(--display);font-variation-settings:"wdth" 78;font-weight:800;
+  font-size:32px;line-height:1;color:var(--accent);}
+.sb-num.bump{animation:bump .34s cubic-bezier(.2,.9,.3,1.4);}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.1)}100%{transform:scale(1)}}
+.sb-den{font-size:12px;font-weight:600;color:#8D8B84;}
+.sb-band{font-size:13px;font-weight:600;color:var(--bone);flex:0 0 auto;}
+.sb-bar{flex:1 1 90px;min-width:70px;height:6px;background:rgba(255,255,255,.16);overflow:hidden;}
+.sb-bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .45s cubic-bezier(.4,0,.2,1);}
+.sb-next{flex:1 1 100%;font-size:12.5px;color:#8D8B84;line-height:1.35;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.sb-next b{color:var(--accent);font-weight:700;}
+@media (min-width:820px){
+  .sb-next{flex:1 1 auto;order:0;}
+  .sb-bar{flex:0 0 110px;}
+}
+
+/* score echo, the fallback when the frame cannot scroll */
+.score-echo{display:none;align-items:center;gap:10px;padding:11px 14px;margin:0 0 4px;
+  background:var(--ink);color:var(--bone);font-size:13px;}
+.host-expanded .score-echo{display:flex;}
+.score-echo b{font-family:var(--display);font-weight:800;font-size:20px;color:var(--accent);line-height:1;}
+
+/* ---------------- generic layout ---------------- */
+.part{padding:clamp(30px,5vw,56px) var(--pad);}
+.part + .part{border-top:1px solid var(--rule);}
+.part-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;}
+.part h2{font-weight:800;font-size:clamp(25px,4.4vw,38px);line-height:1.04;flex:1 1 auto;}
+.part-lede{margin:14px 0 0;color:var(--muted);max-width:64ch;}
+
+/* ---------------- setup form ---------------- */
+.fields{display:grid;gap:16px;margin-top:26px;}
+@media (min-width:680px){.fields{grid-template-columns:1fr 1fr;}
+  .field.wide{grid-column:1/-1;}}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;}
+.field .hint{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px;}
+.field input{
+  width:100%;font-family:var(--text-face);font-size:16px;color:var(--text);
+  background:var(--surface);border:1px solid var(--rule);padding:11px 12px;
+}
+.field input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent);}
+.linkstate{margin-top:8px;font-size:13px;line-height:1.5;}
+.linkstate.good{color:var(--done);}
+.linkstate.bad{color:var(--accent);}
+.linkstate code{font-family:var(--mono);font-size:12px;word-break:break-all;color:var(--text);}
+
+.drawer{margin-top:12px;}
+.drawer > summary{
+  cursor:pointer;font-size:13px;font-weight:600;color:var(--accent);
+  list-style:none;display:inline-flex;align-items:center;gap:7px;padding:3px 0;
+}
+.drawer > summary::-webkit-details-marker{display:none;}
+.drawer > summary::before{content:"?";display:inline-grid;place-items:center;
+  width:17px;height:17px;border:1px solid currentColor;font-size:11px;font-weight:700;flex:0 0 auto;}
+.drawer[open] > summary::before{content:"\2212";}
+.drawer-body{border-left:3px solid var(--rule);padding:2px 0 2px 15px;margin-top:10px;
+  font-size:14px;color:var(--text);}
+.drawer-body p{margin:0 0 9px;}
+.drawer-body p:last-child{margin-bottom:0;}
+.drawer-body ol{margin:0 0 9px;padding-left:20px;}
+.drawer-body li{margin-bottom:6px;}
+
+/* ---------------- toolkit ---------------- */
+.tools{display:flex;flex-direction:column;gap:22px;margin-top:28px;}
+.tool{border:1px solid var(--rule);background:var(--surface);}
+.tool-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;
+  padding:15px 18px;border-bottom:1px solid var(--rule-soft);}
+.tool-head h3{font-size:18px;font-weight:700;flex:1 1 auto;}
+.tool-note{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.tool-note.made{color:var(--done);}
+.tool-body{padding:16px 18px 18px;}
+.tool-body > p:first-child{margin-top:0;}
+.tool-body p{margin:0 0 12px;}
+.tool-body p:last-child{margin-bottom:0;}
+
+.output{
+  font-family:var(--text-face);font-size:14.5px;line-height:1.6;
+  background:var(--ground);border:1px solid var(--rule-soft);
+  padding:14px 15px;white-space:pre-wrap;word-break:break-word;margin:0 0 10px;
+}
+.output.link{font-family:var(--mono);font-size:13px;}
+.output.empty{color:var(--muted);font-style:italic;white-space:normal;}
+.rowbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.btn{
+  appearance:none;border:1px solid var(--text);background:var(--text);color:var(--ground);
+  font-family:var(--text-face);font-size:12.5px;font-weight:600;letter-spacing:.05em;
+  padding:9px 15px;cursor:pointer;transition:opacity .15s;
+}
+.btn:hover{opacity:.85;}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--rule);}
+.btn.ghost:hover{border-color:var(--muted);opacity:1;}
+.btn[disabled]{opacity:.4;cursor:not-allowed;}
+.copied{font-size:12.5px;font-weight:600;color:var(--done);}
+.charcount{font-size:12.5px;color:var(--muted);}
+.charcount.over{color:var(--warn);}
+
+.qr-wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;}
+.qr-box{flex:0 0 auto;width:180px;height:180px;background:#FFFFFF;padding:10px;border:1px solid var(--rule);}
+.qr-box svg{display:block;width:100%;height:100%;}
+.qr-box.empty{display:grid;place-items:center;text-align:center;font-size:12.5px;color:#6E6E68;padding:18px;}
+.qr-side{flex:1 1 240px;min-width:0;}
+
+/* the printable card */
+.card{
+  background:#FFFFFF;color:#0A0A0A;border:2px solid #0A0A0A;
+  padding:22px 22px 24px;max-width:440px;
+  font-family:var(--text-face);
+}
+.card .c-name{font-family:var(--display);font-variation-settings:"wdth" 84;font-weight:800;
+  font-size:21px;line-height:1.1;margin:0 0 4px;letter-spacing:-.02em;}
+.card .c-ask{font-size:17px;font-weight:600;margin:0 0 16px;line-height:1.3;}
+.card ol{margin:0 0 16px;padding-left:22px;font-size:15.5px;line-height:1.55;}
+.card li{margin-bottom:9px;}
+.card .c-url{font-family:var(--mono);font-size:15px;font-weight:700;word-break:break-all;display:block;margin-top:3px;}
+.card .c-qr{width:118px;height:118px;float:right;margin:0 0 10px 14px;}
+.card .c-qr svg{display:block;width:100%;height:100%;}
+.card .c-foot{font-size:13.5px;margin:0;padding-top:12px;border-top:1px solid #DAD6C9;clear:both;}
+.card strong{font-weight:700;}
+
+/* ---------------- scorecard ---------------- */
+.sec{margin-top:clamp(28px,4.5vw,46px);}
+.sec:first-of-type{margin-top:28px;}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
+  padding-bottom:12px;border-bottom:2px solid var(--text);}
+.sec-head h3{font-weight:800;font-size:clamp(21px,3.4vw,29px);line-height:1.06;flex:1 1 auto;}
+.sec-weight{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.sec-weight--pts{white-space:nowrap;}
+.sec-weight b{color:var(--text);}
+.sec-intro{margin:13px 0 0;color:var(--muted);font-size:14.5px;max-width:64ch;}
+.items{display:flex;flex-direction:column;}
+.item{border-bottom:1px solid var(--rule-soft);}
+.item:first-child{border-top:1px solid var(--rule-soft);}
+.item-head{display:flex;gap:16px;align-items:flex-start;padding:16px 0 8px;}
+@media (max-width:640px){.item-head{flex-direction:column;gap:11px;}}
+.item-body{flex:1 1 auto;min-width:0;}
+.item-label{margin:0;font-size:15.5px;line-height:1.5;}
+.item-tag{display:inline-block;margin-top:6px;font-size:11px;font-weight:600;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--muted);}
+.item.yes .item-tag{color:var(--done);}
+.item-tag .auto{color:var(--done);}
+.choice{display:flex;flex:0 0 auto;border:1px solid var(--rule);}
+.choice button{appearance:none;border:0;background:transparent;color:var(--muted);
+  font-family:var(--text-face);font-size:12.5px;font-weight:600;letter-spacing:.05em;
+  padding:9px 15px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s;}
+.choice button + button{border-left:1px solid var(--rule);}
+.choice button:hover{color:var(--text);}
+.choice button[aria-pressed="true"].opt-yes{background:var(--done);color:var(--on-done);}
+.choice button[aria-pressed="true"].opt-no{background:var(--surface-2);color:var(--text);}
+.guard .choice button[aria-pressed="true"].opt-no{background:var(--ink);color:var(--accent);}
+.item-foot{padding:0 0 14px;}
+.fact-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s cubic-bezier(.4,0,.2,1);}
+.fact-wrap.open{grid-template-rows:1fr;}
+.fact-inner{overflow:hidden;}
+.fact{display:flex;gap:12px;background:var(--done-soft);border-left:3px solid var(--done);
+  padding:13px 15px;margin:8px 0 0;}
+.fact-mark{flex:0 0 auto;width:9px;height:9px;background:var(--done);margin-top:7px;}
+.fact-label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--done);margin-bottom:4px;}
+.fact p{margin:0;font-size:14px;line-height:1.55;color:var(--text);}
+
+/* ---------------- score panel + risk ---------------- */
+.result{display:grid;gap:18px;margin-top:34px;}
+@media (min-width:720px){.result{grid-template-columns:1fr 1fr;}}
+.score-block{background:var(--surface);border:1px solid var(--rule);padding:22px;}
+.score-row{display:flex;align-items:baseline;gap:8px;}
+.score-num{font-family:var(--display);font-variation-settings:"wdth" 78;font-weight:800;
+  font-size:clamp(62px,12vw,88px);line-height:.86;letter-spacing:-.045em;color:var(--accent);}
+.score-den{font-size:15px;font-weight:600;color:var(--muted);}
+.score-band{font-family:var(--display);font-variation-settings:"wdth" 86;font-weight:700;
+  font-size:19px;line-height:1.2;margin:12px 0 0;}
+.score-sub{font-size:13.5px;color:var(--muted);margin:5px 0 0;}
+.bar{height:8px;background:var(--surface-2);margin-top:15px;overflow:hidden;}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .45s cubic-bezier(.4,0,.2,1);}
+.panel{background:var(--surface);border:1px solid var(--rule);padding:20px;}
+.panel h4{font-family:var(--text-face);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 12px;}
+.moves{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+.moves li{display:flex;gap:11px;font-size:13.5px;line-height:1.45;}
+.moves .w{flex:0 0 auto;font-weight:700;font-size:12px;color:var(--on-accent);background:var(--accent);
+  padding:2px 6px;height:fit-content;min-width:34px;text-align:center;}
+.moves .done-note{color:var(--done);font-weight:600;}
+.risk{border:1px solid var(--rule);background:var(--surface);padding:20px;}
+.risk.clear{border-color:var(--done);}
+.risk.breach{background:var(--ink);border-color:var(--ink);color:#C9C7C0;}
+.risk.breach h4{color:#8D8B84;}
+.risk-state{font-family:var(--display);font-variation-settings:"wdth" 86;font-weight:700;
+  font-size:17px;margin:0 0 6px;}
+.risk.clear .risk-state{color:var(--done);}
+.risk.breach .risk-state{color:var(--accent);}
+.risk p{margin:0;font-size:13.5px;color:var(--muted);}
+.risk.breach p{color:#A8A69F;}
+.reset{appearance:none;border:1px solid var(--rule);background:transparent;color:var(--muted);
+  font-family:var(--text-face);font-size:12px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;padding:11px 14px;cursor:pointer;margin-top:18px;}
+.reset:hover{color:var(--text);border-color:var(--muted);}
+.reset.armed{color:var(--accent);border-color:var(--accent);}
+
+/* ---------------- targets ---------------- */
+.targets{background:var(--ink);color:#C9C7C0;padding:clamp(30px,5vw,48px) var(--pad);}
+.targets h2{color:var(--bone);font-size:clamp(22px,3.4vw,30px);font-weight:800;}
+.target-grid{display:grid;gap:26px;margin-top:24px;}
+@media (min-width:760px){.target-grid{grid-template-columns:repeat(3,1fr);gap:32px;}}
+.target .num{font-family:var(--display);font-variation-settings:"wdth" 78;font-weight:800;
+  font-size:clamp(36px,6vw,52px);line-height:.9;letter-spacing:-.04em;color:var(--accent);}
+.target .lab{color:var(--bone);font-weight:600;margin:9px 0 4px;font-size:15px;}
+.target p{margin:0;font-size:13.5px;color:#8D8B84;line-height:1.55;}
+
+footer{padding:clamp(26px,4vw,42px) var(--pad) clamp(50px,7vw,64px);color:var(--muted);font-size:13px;}
+footer p{margin:0 0 10px;max-width:78ch;}
+footer strong{color:var(--text);font-weight:600;}
+
+:where(a,button,summary,input):focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}
+  html{scroll-behavior:auto;}}
+
+@media print{
+  .statusbar,.choice,.rowbtns,.reset,.masthead-meta,.drawer{display:none !important;}
+  body{background:#FFF;color:#000;}
+  .part,.targets,.masthead{background:#FFF;color:#000;padding:0 0 18px;}
+  .masthead h1,.targets h2{color:#000;}
+  .fact-wrap{grid-template-rows:1fr;}
+  .card{page-break-inside:avoid;}
+}
+body.printing-card > *{display:none !important;}
+body.printing-card .print-stage{display:block !important;}
+.print-stage{display:none;padding:0;}
+</style>
+
+<header class="masthead">
+  <div class="in">
+    <p class="eyebrow">Spring View Marketing <b>&nbsp;/&nbsp;</b> Built for independent practices</p>
+    <h1>Score your practice out of 100 on Google reviews</h1>
+    <p class="standfirst">Fill in six boxes and this page writes your review link, your QR code, your patient card, your texts, your emails, your counter scripts and your replies. Then it scores what is left to do. <strong>Compliant with Google's April 2026 policy and the DMCCA throughout.</strong></p>
+    <div class="masthead-meta">
+      <span><b>16</b> of the 100 points done for you</span>
+      <span><b>26</b> weighted actions</span>
+      <span><b>8</b> compliance guardrails</span>
+      <span><b>Saves</b> on this device as you go</span>
+    </div>
+  </div>
+</header>
+
+<div class="statusbar" id="statusbar">
+  <div class="sb-in">
+    <span class="sb-score"><span class="sb-num" id="sbNum">0</span><span class="sb-den">/100</span></span>
+    <span class="sb-band" id="sbBand">Not started</span>
+    <span class="sb-bar"><i id="sbFill"></i></span>
+    <span class="sb-next" id="sbNext">Start by filling in your practice details below.</span>
+  </div>
+</div>
+
+<section class="part" id="setup">
+  <div class="in">
+    <div class="part-head"><h2>Start here. Six boxes.</h2></div>
+    <p class="part-lede">Nothing leaves this page and nothing is sent anywhere. Everything below fills itself in as you type, and four of the scorecard actions get ticked off because this page will have done them.</p>
+
+    <div class="fields">
+      <div class="field">
+        <label for="fPractice">Practice name
+          <span class="hint">Exactly as patients say it out loud.</span></label>
+        <input id="fPractice" type="text" autocomplete="organization" placeholder="Bunting &amp; Daughter Opticians">
+      </div>
+      <div class="field">
+        <label for="fTown">Town
+          <span class="hint">Used in the counter scripts and the email.</span></label>
+        <input id="fTown" type="text" placeholder="Kendal">
+      </div>
+      <div class="field">
+        <label for="fName">Who should an unhappy patient ask for?
+          <span class="hint">A real first name. Goes in your review replies.</span></label>
+        <input id="fName" type="text" placeholder="Sarah">
+      </div>
+      <div class="field">
+        <label for="fContact">Their phone number or email
+          <span class="hint">So a complaint moves off the internet and into a conversation.</span></label>
+        <input id="fContact" type="text" placeholder="01539 000000">
+      </div>
+      <div class="field wide">
+        <label for="fLink">Your Google review link
+          <span class="hint">Paste the whole link, or just the Place ID starting ChIJ. Not sure where to find it? Open the help below.</span></label>
+        <input id="fLink" type="text" spellcheck="false" placeholder="https://search.google.com/local/writereview?placeid=ChIJ...">
+        <div class="linkstate" id="linkState"></div>
+        <details class="drawer">
+          <summary>Where do I find this?</summary>
+          <div class="drawer-body">
+            <p><strong>The easy route, on a computer rather than a phone.</strong></p>
+            <ol>
+              <li>Go to google.com and sign in with the email address that manages your practice listing.</li>
+              <li>Search for your practice name. Your own listing appears with an editing panel.</li>
+              <li>Click <strong>Read Reviews</strong>, then <strong>Get more reviews</strong>.</li>
+              <li>Copy the link it shows you and paste it into the box above.</li>
+            </ol>
+            <p><strong>If you cannot see that panel</strong>, search Google for "Place ID Finder", find your practice on the map it shows, and copy the Place ID. It starts with ChIJ. Paste that in the box above instead and this page will build the full link for you.</p>
+            <p>A link that starts <strong>maps.app.goo.gl</strong> is a sharing link, not a review link. It will not work here. Use one of the two routes above.</p>
+          </div>
+        </details>
+      </div>
+      <div class="field wide">
+        <label for="fShort">Short link, if you have one
+          <span class="hint">Optional. Something like yourpractice.co.uk/review. It makes your texts shorter and your card readable.</span></label>
+        <input id="fShort" type="text" spellcheck="false" placeholder="yourpractice.co.uk/review">
+        <details class="drawer">
+          <summary>What is this and how do I get one?</summary>
+          <div class="drawer-body">
+            <p>A short link is a tidy web address on your own website that automatically forwards to the long Google one. The patient types nine words instead of ninety characters.</p>
+            <p>Whoever looks after your website can set it up in about five minutes. The thing to ask for is a <strong>redirect</strong> from /review to your Google review link. Wix, Squarespace and WordPress all have this built in under a settings menu called Redirects or URL Redirects.</p>
+            <p>You do not need one to use this page. Everything works with the Google link. A short link just makes your text messages one message instead of two, and makes the printed card readable by someone without their glasses on.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="part" id="toolkit">
+  <div class="in">
+    <div class="part-head"><h2>Your toolkit</h2></div>
+    <p class="part-lede">Written for your practice, ready to copy. Nothing here asks for a star rating, names a member of staff, or offers anything in return, because all three are now against the rules.</p>
+    <div class="tools" id="tools"></div>
+  </div>
+</section>
+
+<section class="part" id="scorecard">
+  <div class="in">
+    <div class="part-head"><h2>Your scorecard</h2></div>
+    <p class="part-lede">Twenty-six actions, weighted by how much each one actually moves the needle. Tick what is true today. Every tick reveals why that action works, and each one has a "How do I do this?" if you need walking through it.</p>
+    <div id="main"></div>
+
+    <div class="result">
+      <div class="score-block">
+        <p class="eyebrow">Your score</p>
+        <div class="score-row"><span class="score-num" id="score">0</span><span class="score-den">/ 100</span></div>
+        <p class="score-band" id="band">Not started</p>
+        <p class="score-sub" id="sub">Fill in your details above and four actions tick themselves.</p>
+        <div class="bar"><i id="fill"></i></div>
+        <button class="reset" id="reset" type="button">Clear all answers</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="risk" id="risk">
+          <h4>Compliance</h4>
+          <p class="risk-state" id="riskState">Not yet confirmed</p>
+          <p id="riskNote">Eight guardrails to confirm before the rest of the score means anything.</p>
+        </div>
+        <div class="panel">
+          <h4>Your next three moves</h4>
+          <ul class="moves" id="moves"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="targets">
+  <div class="in">
+    <p class="eyebrow" style="color:#8D8B84">What good actually looks like</p>
+    <h2>Three numbers to aim at</h2>
+    <div class="target-grid">
+      <div class="target">
+        <div class="num">4.5&ndash;4.8</div>
+        <p class="lab">Star rating</p>
+        <p>Northwestern's Spiegel Research Center found purchase likelihood peaks between 4.0 and 4.7 stars and falls as ratings approach 5.0. In no category was a perfect score optimal. A flawless 5.0 on low volume reads as bought.</p>
+      </div>
+      <div class="target">
+        <div class="num">1&ndash;5</div>
+        <p class="lab">New reviews a week</p>
+        <p>Matched to your patient flow. Localo's study of 335,520 deleted reviews found profiles gaining one or two a week kept them for 594 days, while profiles gaining 100 or more lost them within six.</p>
+      </div>
+      <div class="target">
+        <div class="num">48h</div>
+        <p class="lab">To reply, every time</p>
+        <p>89% of consumers expect an owner to respond and 81% expect it within a week. Replying barely touches ranking. It moves conversion, which is the part that fills the diary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <p><strong>On the figures.</strong> Google policy wording, the DMCCA position and the CMA's enforcement dates are quoted from primary sources. Review velocity thresholds, the SMS against email multipliers and the QR adoption splits are practitioner and vendor sourced, so treat them as directional rather than published fact. The star rating research is drawn from e-commerce product reviews and transfers to a service practice by direction, not by decimal place.</p>
+    <p><strong>On the rules.</strong> No UK optical regulator publishes review-specific rules. The confidentiality guidance here applies GOC Standards 14.3, 14.5, 16 and 17.2 alongside the clearest primary wording, which comes from the GMC and GDC, to the review context.</p>
+    <p><strong>Your answers stay on this device.</strong> Nothing is sent anywhere. Clearing your browser data clears the scorecard.</p>
+    <p>Spring View Marketing. Marketing for independent opticians.</p>
+  </div>
+</footer>
+
+<div class="print-stage" id="printStage"></div>
+<script>
+/* Minimal QR encoder: byte mode, error correction level M, versions 1 to 15,
+   automatic mask selection. No dependencies. */
+var QR = (function(){
+  var EC_M = {
+    1:[10,1,16,0,0], 2:[16,1,28,0,0], 3:[26,1,44,0,0], 4:[18,2,32,0,0], 5:[24,2,43,0,0],
+    6:[16,4,27,0,0], 7:[18,4,31,0,0], 8:[22,2,38,2,39], 9:[22,3,36,2,37], 10:[26,4,43,1,44],
+    11:[30,1,50,4,51], 12:[22,6,36,2,37], 13:[22,8,37,1,38], 14:[24,4,40,5,41], 15:[24,5,41,5,42]
+  };
+  var ALIGN = {
+    1:[], 2:[6,18], 3:[6,22], 4:[6,26], 5:[6,30], 6:[6,34], 7:[6,22,38], 8:[6,24,42],
+    9:[6,26,46], 10:[6,28,50], 11:[6,30,54], 12:[6,32,58], 13:[6,34,62],
+    14:[6,26,46,66], 15:[6,26,48,70]
+  };
+  var EXP = new Uint8Array(512), LOG = new Uint8Array(256);
+  (function(){
+    var x = 1;
+    for(var i=0;i<255;i++){ EXP[i]=x; LOG[x]=i; x<<=1; if(x & 0x100) x ^= 0x11d; }
+    for(var j=255;j<512;j++) EXP[j] = EXP[j-255];
+  })();
+  function mul(a,b){ return (a===0||b===0) ? 0 : EXP[LOG[a]+LOG[b]]; }
+
+  function genPoly(n){
+    var g=[1];
+    for(var i=0;i<n;i++){
+      var ng=new Array(g.length+1); for(var z=0;z<ng.length;z++) ng[z]=0;
+      for(var j=0;j<g.length;j++){ ng[j]^=g[j]; ng[j+1]^=mul(g[j],EXP[i]); }
+      g=ng;
+    }
+    return g;
+  }
+  function rsEncode(data, ecLen){
+    var g=genPoly(ecLen), res=new Array(data.length+ecLen), i, j;
+    for(i=0;i<res.length;i++) res[i] = i<data.length ? data[i] : 0;
+    for(i=0;i<data.length;i++){
+      var c=res[i]; if(c===0) continue;
+      for(j=0;j<g.length;j++) res[i+j] ^= mul(g[j], c);
+    }
+    return res.slice(data.length);
+  }
+
+  function utf8(str){
+    var out=[], i, c;
+    for(i=0;i<str.length;i++){
+      c=str.charCodeAt(i);
+      if(c<0x80) out.push(c);
+      else if(c<0x800){ out.push(0xC0|(c>>6), 0x80|(c&63)); }
+      else if(c>=0xD800 && c<0xDC00 && i+1<str.length){
+        var c2=str.charCodeAt(++i);
+        var cp=0x10000 + ((c-0xD800)<<10) + (c2-0xDC00);
+        out.push(0xF0|(cp>>18), 0x80|((cp>>12)&63), 0x80|((cp>>6)&63), 0x80|(cp&63));
+      } else { out.push(0xE0|(c>>12), 0x80|((c>>6)&63), 0x80|(c&63)); }
+    }
+    return out;
+  }
+
+  function totalDataCW(v){ var t=EC_M[v]; return t[1]*t[2] + t[3]*t[4]; }
+  function capacity(v){ var bits = totalDataCW(v)*8 - 4 - (v<10?8:16); return Math.floor(bits/8); }
+
+  function pickVersion(len, minVersion){
+    for(var v = minVersion||1; v<=15; v++) if(capacity(v) >= len) return v;
+    return null;
+  }
+
+  function codewords(bytes, version){
+    var bits=[], i, j;
+    function push(val, n){ for(var k=n-1;k>=0;k--) bits.push((val>>k)&1); }
+    push(4,4);
+    push(bytes.length, version<10 ? 8 : 16);
+    for(i=0;i<bytes.length;i++) push(bytes[i],8);
+    var total = totalDataCW(version)*8;
+    for(i=0;i<4 && bits.length<total;i++) bits.push(0);
+    while(bits.length % 8 !== 0) bits.push(0);
+    var pad=[0xEC,0x11], p=0;
+    while(bits.length < total){ push(pad[p%2],8); p++; }
+    var data=[];
+    for(i=0;i<bits.length;i+=8){
+      var b=0; for(j=0;j<8;j++) b=(b<<1)|bits[i+j];
+      data.push(b);
+    }
+    var t=EC_M[version], ecLen=t[0];
+    var blocks=[], ecs=[], off=0;
+    for(i=0;i<t[1];i++){ var d1=data.slice(off,off+t[2]); off+=t[2]; blocks.push(d1); ecs.push(rsEncode(d1,ecLen)); }
+    for(i=0;i<t[3];i++){ var d2=data.slice(off,off+t[4]); off+=t[4]; blocks.push(d2); ecs.push(rsEncode(d2,ecLen)); }
+    var out=[], maxD=Math.max(t[2],t[4]);
+    for(i=0;i<maxD;i++) for(j=0;j<blocks.length;j++) if(i<blocks[j].length) out.push(blocks[j][i]);
+    for(i=0;i<ecLen;i++) for(j=0;j<ecs.length;j++) out.push(ecs[j][i]);
+    return out;
+  }
+
+  function maskFn(k,r,c){
+    switch(k){
+      case 0: return (r+c)%2===0;
+      case 1: return r%2===0;
+      case 2: return c%3===0;
+      case 3: return (r+c)%3===0;
+      case 4: return (Math.floor(r/2)+Math.floor(c/3))%2===0;
+      case 5: return ((r*c)%2 + (r*c)%3)===0;
+      case 6: return (((r*c)%2 + (r*c)%3)%2)===0;
+      default: return (((r+c)%2 + (r*c)%3)%2)===0;
+    }
+  }
+
+  function build(version, cw){
+    var size=version*4+17, m=[], res=[], i, j, r, c;
+    for(i=0;i<size;i++){
+      m.push(new Array(size)); res.push(new Array(size));
+      for(j=0;j<size;j++){ m[i][j]=0; res[i][j]=false; }
+    }
+    function setF(rr,cc,v){ if(rr<0||cc<0||rr>=size||cc>=size) return; m[rr][cc]=v; res[rr][cc]=true; }
+    function finder(fr,fc){
+      for(var dr=-1;dr<=7;dr++) for(var dc=-1;dc<=7;dc++){
+        var on = (dr>=0&&dr<=6&&dc>=0&&dc<=6) &&
+                 (dr===0||dr===6||dc===0||dc===6||(dr>=2&&dr<=4&&dc>=2&&dc<=4));
+        setF(fr+dr, fc+dc, on?1:0);
+      }
+    }
+    finder(0,0); finder(0,size-7); finder(size-7,0);
+    for(i=8;i<size-8;i++){ setF(6,i,(i%2===0)?1:0); setF(i,6,(i%2===0)?1:0); }
+    var ap=ALIGN[version];
+    for(i=0;i<ap.length;i++) for(j=0;j<ap.length;j++){
+      r=ap[i]; c=ap[j];
+      if((r<=8&&c<=8)||(r<=8&&c>=size-9)||(r>=size-9&&c<=8)) continue;
+      for(var dr2=-2;dr2<=2;dr2++) for(var dc2=-2;dc2<=2;dc2++){
+        var mx=Math.max(Math.abs(dr2),Math.abs(dc2));
+        setF(r+dr2, c+dc2, mx===1?0:1);
+      }
+    }
+    setF(size-8,8,1);
+    for(i=0;i<=8;i++){ if(!res[8][i]) setF(8,i,0); if(!res[i][8]) setF(i,8,0); }
+    for(i=0;i<8;i++){ if(!res[8][size-1-i]) setF(8,size-1-i,0); if(!res[size-1-i][8]) setF(size-1-i,8,0); }
+    if(version>=7){
+      for(i=0;i<6;i++) for(j=0;j<3;j++){ setF(size-11+j,i,0); setF(i,size-11+j,0); }
+    }
+    var bits=[];
+    for(i=0;i<cw.length;i++) for(j=7;j>=0;j--) bits.push((cw[i]>>j)&1);
+    var idx=0, col=size-1, up=true;
+    while(col>0){
+      if(col===6) col--;
+      for(i=0;i<size;i++){
+        var row = up ? (size-1-i) : i;
+        for(var k=0;k<2;k++){
+          var cc=col-k;
+          if(res[row][cc]) continue;
+          m[row][cc] = idx<bits.length ? bits[idx] : 0;
+          idx++;
+        }
+      }
+      col-=2; up=!up;
+    }
+    return { m:m, res:res, size:size };
+  }
+
+  function formatBits(mask){
+    var data = (0<<3) | mask;             /* EC level M is 00 */
+    var v = data << 10;
+    for(var i=14;i>=10;i--) if((v>>i)&1) v ^= 0x537 << (i-10);
+    return ((data<<10) | (v & 0x3FF)) ^ 0x5412;
+  }
+  function versionBits(version){
+    var rem = version;
+    for(var i=0;i<12;i++) rem = (rem<<1) ^ (((rem>>11)&1) ? 0x1F25 : 0);
+    return (version<<12) | (rem & 0xFFF);
+  }
+
+  function drawFormat(m, size, mask){
+    var f=formatBits(mask), i, bit;
+    function g(n){ return (f>>n)&1; }
+    for(i=0;i<=5;i++) m[i][8]=g(i);
+    m[7][8]=g(6); m[8][8]=g(7); m[8][7]=g(8);
+    for(i=9;i<15;i++) m[8][14-i]=g(i);
+    for(i=0;i<8;i++) m[8][size-1-i]=g(i);
+    for(i=8;i<15;i++) m[size-15+i][8]=g(i);
+    m[size-8][8]=1;
+  }
+  function drawVersion(m, size, version){
+    if(version<7) return;
+    var b=versionBits(version);
+    for(var i=0;i<18;i++){
+      var bit=(b>>i)&1, a=size-11+(i%3), d=Math.floor(i/3);
+      m[d][a]=bit; m[a][d]=bit;
+    }
+  }
+
+  function penalty(m,size){
+    var p=0, i, j, run, last, dark=0;
+    for(i=0;i<size;i++){
+      run=1; last=m[i][0];
+      for(j=1;j<size;j++){
+        if(m[i][j]===last) run++;
+        else { if(run>=5) p += 3+(run-5); last=m[i][j]; run=1; }
+      }
+      if(run>=5) p += 3+(run-5);
+      run=1; last=m[0][i];
+      for(j=1;j<size;j++){
+        if(m[j][i]===last) run++;
+        else { if(run>=5) p += 3+(run-5); last=m[j][i]; run=1; }
+      }
+      if(run>=5) p += 3+(run-5);
+    }
+    for(i=0;i<size-1;i++) for(j=0;j<size-1;j++){
+      var v=m[i][j];
+      if(m[i][j+1]===v && m[i+1][j]===v && m[i+1][j+1]===v) p+=3;
+    }
+    var A=[1,0,1,1,1,0,1,0,0,0,0], B=[0,0,0,0,1,0,1,1,1,0,1];
+    function seq(get){
+      for(var s=0;s+11<=size;s++){
+        var okA=true, okB=true;
+        for(var t=0;t<11;t++){ var val=get(s+t); if(val!==A[t]) okA=false; if(val!==B[t]) okB=false; }
+        if(okA) p+=40; if(okB) p+=40;
+      }
+    }
+    for(i=0;i<size;i++){
+      (function(row){ seq(function(x){ return m[row][x]; }); })(i);
+      (function(colI){ seq(function(x){ return m[x][colI]; }); })(i);
+    }
+    for(i=0;i<size;i++) for(j=0;j<size;j++) if(m[i][j]) dark++;
+    var pct = dark*100/(size*size);
+    p += 10*Math.floor(Math.abs(pct-50)/5);
+    return p;
+  }
+
+  function encode(text, opts){
+    opts = opts || {};
+    var bytes=utf8(text);
+    var version=pickVersion(bytes.length, opts.minVersion);
+    if(version===null) return null;
+    var cw=codewords(bytes, version);
+    var base=build(version, cw);
+    var best=null, bestScore=Infinity, k, i, j;
+    for(k=0;k<8;k++){
+      var m=[];
+      for(i=0;i<base.size;i++){
+        m.push(base.m[i].slice());
+        for(j=0;j<base.size;j++) if(!base.res[i][j] && maskFn(k,i,j)) m[i][j]^=1;
+      }
+      drawFormat(m, base.size, k);
+      drawVersion(m, base.size, version);
+      var s=penalty(m, base.size);
+      if(s<bestScore){ bestScore=s; best=m; }
+    }
+    return { modules:best, size:base.size, version:version };
+  }
+
+  function svg(text, opts){
+    opts = opts || {};
+    var q = encode(text, opts);
+    if(!q) return null;
+    var quiet = opts.quiet == null ? 4 : opts.quiet;
+    var dim = q.size + quiet*2;
+    var d = '', i, j;
+    for(i=0;i<q.size;i++) for(j=0;j<q.size;j++)
+      if(q.modules[i][j]) d += 'M' + (j+quiet) + ' ' + (i+quiet) + 'h1v1h-1z';
+    var dark = opts.dark || '#000000', light = opts.light || '#ffffff';
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+dim+' '+dim+'" '
+         + 'shape-rendering="crispEdges" role="img" aria-label="QR code linking to your Google review page">'
+         + '<rect width="'+dim+'" height="'+dim+'" fill="'+light+'"/>'
+         + '<path d="'+d+'" fill="'+dark+'"/></svg>';
+  }
+
+  return { encode:encode, svg:svg, capacity:capacity };
+})();
+
+
+/* ============================================================
+   Content
+   ============================================================ */
+
+var GUARDRAILS = [
+  {id:"g1", t:"We never offer anything in return for a review. No discount, no prize draw, no free case.",
+   f:"Incentivised reviews are a banned practice under the DMCCA 2024, in force since 6 April 2025. The CMA can fine up to 10% of global turnover and opened its first fake review investigations on 26 March 2026. One of them concerns undisclosed discounts for five star reviews."},
+  {id:"g2", t:"We ask every patient the same way, not just the ones who look pleased.",
+   f:"Filtering for happy patients is review gating, and Google names it in policy: merchants must not discourage negative reviews or selectively solicit positive ones. It is prohibited outright, not a grey area.",
+   how:"The trap is a subtle one. Sending a how did we do survey first and only inviting the happy answers on to Google is gating. So is quietly skipping the patient who grumbled about the price. If you could watch a day in your practice and tell which patients were asked, you have a problem."},
+  {id:"g3", t:"We never ask for five stars or for a positive review. We ask for an honest one.",
+   f:"Requesting specific content breaches Google's Maps policy. Honest is also the better ask commercially, because an unbroken wall of fives reads as bought and converts worse than a believable spread."},
+  {id:"g4", t:"We never ask a patient to mention a member of staff by name.",
+   f:"Banned outright on 17 April 2026, when Google added two clauses under Rating Manipulation. It was spotted by product experts rather than formally announced, so keep every ask open ended and you stay well clear of the edges."},
+  {id:"g5", t:"No member of staff has a review target, quota or bonus tied to review numbers.",
+   f:"That is the other clause added on 17 April 2026. Dignity is currently under CMA investigation partly over allegedly asking staff to write positive reviews about its crematoria. Celebrate asks made, never review counts by person.",
+   how:"Recognise the team for asking well and for asking everybody. Never set a number, never pay a bonus on reviews received, and never put a leaderboard of names on the staffroom wall."},
+  {id:"g6", t:"There is no practice tablet or kiosk on the premises for leaving reviews.",
+   f:"Two problems in one. Reviews from a single device or IP address trip Google's spam filters, and pressuring patients to review while still on the premises is now explicitly banned.",
+   how:"If you have an iPad on the counter it is fine for dispensing and for showing frames. It is not fine for reviews. A run of reviews from one device looks identical to Google and gets removed, taking the genuine ones with it."},
+  {id:"g7", t:"Nobody here writes, edits or commissions a review.",
+   f:"Fake reviews are unlawful under the DMCCA, and businesses carry a positive duty to take reasonable and proportionate steps to prevent them. Google removed 13 million fake Business Profiles in 2025 alone."},
+  {id:"g8", t:"Our replies to negative reviews never confirm the person is a patient or discuss their care.",
+   f:"The GMC's guidance on responding to criticism in the media, which applies to social media too, says you must not put confidential patient information into the public domain, and must not reveal more by omission or inference than a simple denial demands. GOC Standard 14.3 says the same for opticians.",
+   how:"There is a reply written for you in the toolkit above that stays on the right side of this. The rule underneath it: never confirm they are a patient, never mention anything about their care, apologise for the experience rather than the treatment, and give a name and a number."}
+];
+
+var SECTIONS = [
+  {
+    id:"found", name:"Foundations", pts:18,
+    intro:"An afternoon's work, done once. Everything after this depends on the link being right and the permission being clean.",
+    items:[
+      {id:"f1", w:5, auto:true, t:"A direct review link generated from inside your own Google Business Profile.",
+       f:"It drops the patient straight onto the write review box instead of making them find you first. The old g.page short links and the standalone Marketing Kit have become unreliable, so a link generated fresh from your profile is the one to trust.",
+       how:"Done for you the moment you paste your link or Place ID into the box at the top of this page. If you have not found it yet, open Where do I find this? in the setup section and follow the four steps."},
+      {id:"f2", w:3, t:"That link wrapped in a short branded address, such as yourpractice.co.uk/review.",
+       f:"A patient can read a short address down the phone, type it into a browser, or copy it off a card. A ninety character Google link can do none of those things.",
+       how:"Ask whoever looks after your website for a redirect from /review to your Google review link. It takes them about five minutes. Wix, Squarespace and WordPress all have a Redirects setting built in. Then paste it into the short link box at the top and every template on this page rewrites itself."},
+      {id:"f3", w:2, auto:true, t:"A QR code made and saved ready for print.",
+       f:"A QR code is the little square barcode. The patient points their phone camera at it, a link pops up, and they tap it. No app needed, and nothing to type.",
+       how:"Already made for you in the toolkit above, as soon as your link is in. To save it: on a computer right-click it and choose Save image as. On a phone press and hold it, then choose Save or Add to Photos. Send that file to whoever does your printing."},
+      {id:"f4", w:6, t:"Review request permission folded into your registration and communications consent, with a clear opt out.",
+       f:"A request designed to lift your public rating can count as direct marketing, which puts it under PECR. PECR was reformed on 5 February 2026 and its penalties now match UK GDPR. Consent has to be specific per channel, so email and SMS are separate. This also settles GOC Standard 14.5 on using patient information only for the purpose it was given.",
+       how:"Add one line to your registration form and your communications preferences, with two separate tick boxes: \"We may occasionally ask how your visit went, by text\" and \"...by email\". Underneath: \"You can stop these at any time by replying STOP or telling us.\" Ask your practice management supplier to add it to the sign-up screen, and add it to the paper form in the meantime."},
+      {id:"f5", w:2, t:"A baseline written down: today's review count and rating, plus the same two figures for your three nearest competitors.",
+       f:"You cannot tell whether any of this is working without a starting line. Beating the three practices your patients also considered is the target, not an abstract number.",
+       how:"Open Google Maps on a computer. Search your practice and write down today's review count and star rating. Then search the three nearest opticians and do the same. Six numbers in a notebook with today's date. Repeat in three months."}
+    ]
+  },
+  {
+    id:"ask", name:"The ask at collection", pts:26,
+    intro:"The single highest yield move in the whole system, and it costs nothing. A warm, specific, open ended ask at the moment you hand over the glasses.",
+    items:[
+      {id:"a1", w:8, t:"Asking for an honest review is a fixed, non-optional step in the collection routine.",
+       f:"Making it a step removes the decision. Staff who choose each time will skip it on a busy Thursday, and a busy Thursday is exactly when you have the most patients to ask.",
+       how:"Write it into the collection checklist your staff already follow, between adjust the frames and book the next appointment. If there is no written checklist, this is the moment to make one. The ask is one line and takes ten seconds."},
+      {id:"a2", w:6, t:"The words are written down: open ended, no star number, no staff names, with a genuine reason attached.",
+       f:"Langer's 1978 copier study is the classic evidence. A small favour asked with no reason got 60% compliance. The same favour with a reason attached got 93%. Keep the ask small and always say why it matters.",
+       how:"The four scripts in the toolkit above are already written with your practice and town in them. Print them and pin them by the dispensing desk. The rule is: never a number of stars, never a colleague's name, and always the real reason, which is that it helps other people in your town find you."},
+      {id:"a3", w:5, t:"The whole team has rehearsed it out loud, with role play, in a huddle.",
+       f:"Nobody delivers a script well the first time in front of a patient. Fifteen minutes of feeling daft in a huddle is what makes it sound natural at the dispensing desk.",
+       how:"Ten minutes at your next team meeting. One person plays the patient, one plays the dispenser, everyone else watches. Swap round, do it twice. It will feel silly, which is precisely the point of doing it there rather than in front of a patient."},
+      {id:"a4", w:4, t:"Everyone collecting glasses gets asked, in the same words, in the same tone.",
+       f:"Past the compliance point, asking everyone is what produces a believable spread of ratings. Reciprocity is doing the work here: the patient has just received care and attention, and a small favour asked straight afterwards lands far better than the same favour asked cold.",
+       how:"The test is simple. Could you tell, from watching a day in your practice, which patients were asked and which were not? If the answer is that the cheerful ones were asked, that is gating and it has to stop today."},
+      {id:"a5", w:3, t:"Patients are asked to review later on their own phone. Nobody hands over a practice device.",
+       f:"If a patient chooses to do it there and then on their own phone, that is fine. Do not stand over them and watch, and never reach for the practice iPad.",
+       how:"If a patient gets their own phone out, help them if they want help, then step back. If they say they will do it later, that is a completely normal answer, and the text you send that afternoon is what catches them."}
+    ]
+  },
+  {
+    id:"sms", name:"Same day follow up", pts:22,
+    intro:"The ask gets the yes. The text removes every excuse not to act on it. These two together are the engine, and everything else supports them.",
+    items:[
+      {id:"s1", w:8, t:"A personalised text goes out the same day as collection, carrying the link.",
+       f:"Same day, while the new glasses are still a novelty and the conversation is still fresh. A verbal yes followed by an easy link is commitment and consistency doing the work for you.",
+       how:"Send it the same afternoon. If you have no automation yet, keep a notepad by the till, write down the mobile number of everyone who collects today, and send the texts as one batch before you lock up. Ten minutes, and it is the single highest yield ten minutes in your week."},
+      {id:"s2", w:6, auto:true, t:"A text template written: short, practice name, one link, one ask, opt out included.",
+       f:"Around 98% of texts get opened against roughly 20 to 35% for email, and texts convert to completed reviews about three to five times as often. Those are vendor figures so treat them as directional, but the size of the gap is not in doubt.",
+       how:"Written for you in the toolkit above with your practice name already in it. Copy it into your phone as a saved reply, or into your practice system as a template. The character counter tells you whether it sends as one text or two."},
+      {id:"s3", w:4, t:"A next day email for patients with no mobile number, or no response to the text.",
+       f:"Plain text, single link, a real person's name as the sender. It reads like a note from the practice rather than a campaign, which is exactly why it works.",
+       how:"Copy the email from the toolkit above. Send it from a real person's address rather than info@ or noreply@. One link, no images, no header banner. It should look like an email a human typed."},
+      {id:"s4", w:2, t:"The cadence is capped and written down: text, then email, then one gentle reminder around day seven to everybody. Then stop.",
+       f:"Two or three touchpoints is the ceiling. Chasing further costs goodwill for reviews you were never going to get, and sending the reminder only to selected patients would be gating.",
+       how:"Write the three steps on a card by the till: same day text, next day email if no reply, one more text a week later to everybody who has not opted out. Then nothing. Set a calendar reminder rather than trusting memory."},
+      {id:"s5", w:2, auto:false, t:"The review link sits under the sign off in the practice email signature.",
+       f:"Ten minutes of work that keeps earning quietly for years, on every appointment confirmation and every reply to a supplier.",
+       how:"The line is written for you in the toolkit above. In Outlook: File, then Options, then Mail, then Signatures. In Gmail: Settings, then See all settings, then scroll down to Signature. Paste it in under your name and save."}
+    ]
+  },
+  {
+    id:"older", name:"Your 55+ patients", pts:16,
+    intro:"Your highest value patients are the least likely to scan a QR code and the most likely to be stopped by a sign in prompt. This section is worth more to an optician than to almost any other business.",
+    items:[
+      {id:"o1", w:6, t:"Every member of staff can explain that a Google account is needed but a Gmail address is not.",
+       f:"At the sign in prompt the patient chooses Use my current email address instead, and keeps their Outlook, Yahoo or work address. That pop up is the single biggest blocker for older patients, and one sentence removes it. Teach this one fact and you unlock a large share of your best patients.",
+       how:"Have everyone say this sentence out loud once, in a huddle, so it comes out in their own words when a patient asks: \"You do not need a Gmail address. When it asks you to sign in, tap Use my current email address instead, and put in the email you already use.\""},
+      {id:"o2", w:4, t:"A printed collection card with numbered steps, the short address and large, legible type.",
+       f:"Older adults scan far less. One US study found them about 37% as likely to have used a QR code even after accounting for smartphone ownership, and roughly 18% of QR users are 55 or over. Print the address alongside the code, every time.",
+       how:"The card is made for you in the toolkit above, with your details and your QR code on it. Print it at A6, four to a sheet of A4, on card rather than paper so it survives a handbag. Remember your patient will be reading it having just handed you their old glasses, so the type is deliberately large."},
+      {id:"o3", w:3, t:"Staff offer to help on the patient's own phone, if the patient would like help.",
+       f:"Compliant, because it is their device and their account, which sidesteps the shared device problem entirely. It also turns the one genuinely hard step, signing in, into something that happens with a helpful person standing next to them.",
+       how:"Ask first: \"Would you like me to show you on your phone?\" If yes, stand beside them rather than over them and talk them through it. Never take the phone off them, and never use a practice device."},
+      {id:"o4", w:2, t:"A short phone call for loyal regulars who would happily review if someone walked them through it.",
+       f:"Labour intensive, so save it for the patients who have been coming for fifteen years. Those tend to be the warmest reviews you will ever get.",
+       how:"Pick five loyal patients a month. Call to thank them for their custom, then ask if they would like you to walk them through leaving a review while you are on the phone. Fifteen minutes each."},
+      {id:"o5", w:1, t:"The team knows a family member may help a patient leave their own review, but must never write one in their own name.",
+       f:"A review from someone who did not personally receive the care is a fake review under the DMCCA, however well meant it was.",
+       how:"Say it plainly: \"Your daughter can hold the phone and type for you, but it has to be your review, in your words, from your account. She cannot write her own about a test she did not have.\""}
+    ]
+  },
+  {
+    id:"reply", name:"Replying", pts:10,
+    intro:"Replying barely moves ranking. It strongly moves conversion, and in a healthcare setting a careless reply can breach confidentiality.",
+    items:[
+      {id:"r1", w:5, t:"Every review gets a reply within 24 to 48 hours.",
+       f:"BrightLocal's 2026 survey found 89% of consumers expect owners to reply, 81% expect it within a week, and 19% now expect the same day, up from 6% a year earlier. US panel, but the direction of travel is the same here.",
+       how:"Turn on review notifications inside your Google Business Profile so an email lands when a review does. Then put a recurring fifteen minute slot in the diary twice a week, owned by one named person."},
+      {id:"r2", w:3, auto:true, t:"A negative reply template exists that apologises, offers a named contact, and reveals nothing about anyone's care.",
+       f:"Answering a bad review well is worth more than the review costs you, because searchers read the reply as evidence of how you handle problems. Answering it badly, in a healthcare setting, is a confidentiality breach.",
+       how:"Written for you in the toolkit above, using the name and contact you entered. Save it somewhere you can reach it in a hurry, because the temptation to fire back a correction is strongest in the first ten minutes."},
+      {id:"r3", w:2, t:"Replies are varied and specific, never copy and pasted.",
+       f:"Half of consumers are actively put off by a reply that reads like a template. A silent profile loses searchers, and so does a robotic one.",
+       how:"Mention something specific and harmless from the review itself, like the frames they chose or that they were seen quickly. If you cannot say anything specific without touching on their care, keep it short and warm rather than long and generic."}
+    ]
+  },
+  {
+    id:"pace", name:"Pace and keep it going", pts:8,
+    intro:"The failure mode here is enthusiasm. A big batch of requests produces a velocity spike, and a velocity spike gets genuine reviews filtered out.",
+    items:[
+      {id:"p1", w:4, t:"Practice management system or review tool set to send the request to all eligible patients automatically.",
+       f:"Optix has review collection and a rolling 30 and 90 day NPS built into the diary workflow. Ocuco's Acuitas 3 and Focus are the other main UK optical systems. Whatever you use, check it sends to everyone, spaces the sends, and honours opt outs.",
+       how:"Ask your system supplier this exact question: \"Can you send an automatic review request by text after a collection, to every patient who has agreed, spaced so we get no more than about five a week?\" If nobody can do it, the notepad by the till works perfectly well and costs nothing."},
+      {id:"p2", w:2, t:"Sending is paced so you publish no more than about five reviews a week.",
+       f:"Localo studied 335,520 deleted reviews. Profiles gaining one or two a week kept them for 594 days. Profiles gaining 100 or more a week lost them within six days. That is 99 times longer, for going slowly.",
+       how:"If you have three hundred patients on file, do not text them all this month. Start with this week's collections only and let it build from there. If reviews start disappearing or a warning banner appears on your profile, you are going too fast."},
+      {id:"p3", w:2, t:"A weekly tally is kept: patients asked, reviews received, rating trend.",
+       f:"Count the asks, never the reviews attributed to a person. Tracking reviews by staff member is exactly the quota Google banned in April 2026, and it is what the CMA is currently investigating elsewhere.",
+       how:"A notebook by the till with three columns: date, patients asked, reviews received. Add the star rating every Friday. That is the whole system, and within a month it will tell you whether the ask is landing."}
+    ]
+  }
+];
+
+/* ============================================================
+   State
+   ============================================================ */
+
+var KEY = "svm-review-scorecard-v2";
+var CAP = 45;
+var AUTO_IDS = ["f1","f3","s2","r2"];
+
+var state = { answers:{}, overrides:{}, setup:{} };
+try{
+  var raw = localStorage.getItem(KEY);
+  if(raw){
+    var p = JSON.parse(raw);
+    state.answers = p.answers || {};
+    state.overrides = p.overrides || {};
+    state.setup = p.setup || {};
+  }
+}catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+function el(tag, cls, text){
+  var n = document.createElement(tag);
+  if(cls) n.className = cls;
+  if(text != null) n.textContent = text;
+  return n;
+}
+function byId(id){ return document.getElementById(id); }
+
+/* ============================================================
+   The review link
+   ============================================================ */
+
+var PLACE_BASE = "https://search.google.com/local/writereview?placeid=";
+
+function resolveLink(input){
+  var s = (input || "").trim().replace(/^[<"']+|[>"']+$/g, "");
+  if(!s) return { ok:false, empty:true };
+  var m;
+  if(/search\.google\.com\/local\/writereview/i.test(s)){
+    m = s.match(/placeid=([A-Za-z0-9_\-]+)/i);
+    if(m) return { ok:true, url:PLACE_BASE + m[1], what:"Google review link, built from your Place ID" };
+    return { ok:true, url:s, what:"Google review link" };
+  }
+  if(/^https?:\/\/g\.page\/r\/[A-Za-z0-9_\-]+/i.test(s))
+    return { ok:true, url:s, what:"g.page link", warn:"These older short links have become unreliable. When you get a chance, replace it with the one from inside your Business Profile." };
+  m = s.match(/place_?id[:=]([A-Za-z0-9_\-]{15,})/i);
+  if(m) return { ok:true, url:PLACE_BASE + m[1], what:"Google review link, built from your Place ID" };
+  if(/^(ChI|Ei|Gh|El)[A-Za-z0-9_\-]{10,}$/.test(s) && !/\s|\//.test(s))
+    return { ok:true, url:PLACE_BASE + s, what:"Google review link, built from your Place ID" };
+  if(/maps\.app\.goo\.gl|goo\.gl\/maps/i.test(s))
+    return { ok:false, why:"That is a Google Maps sharing link, which sends people to your map pin rather than the review box. Open the help below and follow the four steps to get the right one." };
+  if(/^https?:\/\//i.test(s))
+    return { ok:true, url:s, what:"a web link", warn:"This does not look like a Google review link. It will still be used everywhere below, so check it opens the review box before you print anything." };
+  if(/^[a-z0-9.\-]+\.[a-z]{2,}(\/.*)?$/i.test(s))
+    return { ok:true, url:"https://" + s, what:"a web link", warn:"This does not look like a Google review link. Check it opens the review box before you print anything." };
+  return { ok:false, why:"That does not look like a link or a Place ID. Paste the whole link from your Business Profile, or the Place ID that starts with ChIJ." };
+}
+
+function tidyShort(input){
+  var s = (input || "").trim().replace(/^https?:\/\//i, "").replace(/\/+$/, "");
+  return s;
+}
+
+/* what every template actually uses */
+function ctx(){
+  var s = state.setup;
+  var link = resolveLink(s.link);
+  var shortLink = tidyShort(s.short);
+  return {
+    practice: (s.practice || "").trim(),
+    town: (s.town || "").trim(),
+    name: (s.name || "").trim(),
+    contact: (s.contact || "").trim(),
+    linkOk: !!link.ok,
+    url: link.ok ? link.url : "",
+    shortLink: shortLink,
+    display: shortLink || (link.ok ? link.url : ""),
+    ready: !!link.ok && !!(s.practice || "").trim()
+  };
+}
+function ph(v, fallback){ return v ? v : fallback; }
+
+/* ============================================================
+   The toolkit
+   ============================================================ */
+
+var TOOLS = [
+  {
+    id:"t-link", title:"Your review link", note:"Made for you",
+    intro:"This is the address that drops a patient straight onto the box where they write the review. Everything else on this page is built from it.",
+    build:function(c){
+      if(!c.linkOk) return { empty:"Paste your Google review link or Place ID in the box above and it appears here." };
+      var body = c.url;
+      var extra = c.shortLink
+        ? "Your short link " + c.shortLink + " is being used in the card and the messages, which is the right way round. Point it at the address above."
+        : "Worth doing next: a short link like " + (c.practice ? c.practice.toLowerCase().replace(/[^a-z0-9]+/g,"") : "yourpractice") + ".co.uk/review pointing at this address. It makes your texts one message instead of two.";
+      return { body:body, mono:true, foot:extra };
+    }
+  },
+  {
+    id:"t-qr", title:"Your QR code", note:"Made for you",
+    intro:"A QR code is the little square barcode. A patient points their phone camera at it, a link pops up, and they tap it. There is no app to install and nothing to type.",
+    qr:true
+  },
+  {
+    id:"t-card", title:"Your patient card", note:"Made for you",
+    intro:"Print this at A6, four to a sheet of A4, on card rather than paper. Hand one over with the glasses. The type is deliberately large, because your patient is reading it having just handed you their old pair.",
+    card:true
+  },
+  {
+    id:"t-sms", title:"Your same day text", note:"Made for you",
+    intro:"Send it the same afternoon they collect. Replace the first name each time. The counter below tells you whether it goes as one text or two.",
+    build:function(c){
+      if(!c.ready) return { empty:"Fill in your practice name and your review link above." };
+      var t = "Hi [First name], thanks for visiting " + c.practice + " today. If you have a moment, we would really value your honest feedback on Google: " + c.display + " Reply STOP to opt out.";
+      return { body:t, count:true, sms:true };
+    }
+  },
+  {
+    id:"t-email", title:"Your follow up email", note:"Made for you",
+    intro:"For patients with no mobile number, or no reply to the text. Send it from a real person's address rather than info@ or noreply@, with no images and no header banner.",
+    build:function(c){
+      if(!c.ready) return { empty:"Fill in your practice name and your review link above." };
+      var t = "Subject: A quick favour, [First name]?\n\n"
+        + "Thank you for visiting " + c.practice + ".\n\n"
+        + "Honest reviews from patients like you are how other people "
+        + (c.town ? "in " + c.town + " " : "") + "find us, and they make a real difference to a small independent practice.\n\n"
+        + "If you have a spare minute, you can share how your visit went here:\n"
+        + c.display + "\n\n"
+        + "Thank you,\n" + ph(c.name, "[Your name]") + "\n" + c.practice;
+      return { body:t };
+    }
+  },
+  {
+    id:"t-sig", title:"Your email signature line", note:"Made for you",
+    intro:"Ten minutes of work that keeps earning quietly for years. In Outlook: File, Options, Mail, Signatures. In Gmail: Settings, See all settings, then scroll to Signature.",
+    build:function(c){
+      if(!c.ready) return { empty:"Fill in your practice name and your review link above." };
+      return { body:"Happy with your visit? Leave us an honest review on Google: " + c.display };
+    }
+  },
+  {
+    id:"t-scripts", title:"What to say at the counter", note:"Made for you",
+    intro:"Four moments, four scripts. Print them and pin them by the dispensing desk. Not one of them asks for a star rating or names a colleague, because both are now against Google policy.",
+    scripts:true
+  },
+  {
+    id:"t-replies", title:"Your review replies", note:"Made for you",
+    intro:"The negative one is the important one. It apologises, gives a real person to talk to, and never confirms that the reviewer is a patient, which is what keeps you the right side of your confidentiality duty.",
+    replies:true
+  }
+];
+
+function scriptSet(c){
+  var town = c.town ? c.town : "the area";
+  var practice = ph(c.practice, "[Practice name]");
+  return [
+    { when:"Handing over new glasses",
+      text:"I hope you love the new glasses. Can I ask a small favour? Reviews on Google really help other people in " + town + " find us. If you have a spare minute later, we would be really grateful if you shared how you found your visit. I will put the link on a card and send you a text so it is easy." },
+    { when:"After an eye examination",
+      text:"Thanks for coming in today. One thing that genuinely helps a small independent practice like ours is an honest Google review about your experience. No pressure at all, but if you have a moment I will text you the link." },
+    { when:"At reception, on the way out",
+      text:"Before you go, would you mind leaving us an honest review on Google when you get a chance? It makes a real difference to us. Here is a card with the steps on it, or I can text you the link, whichever is easier." },
+    { when:"When a patient compliments you",
+      text:"That is so kind, thank you. Would you be willing to put that in a Google review? What you have just said is exactly the sort of thing that helps someone else decide to book with us." }
+  ];
+}
+function replySet(c){
+  var practice = ph(c.practice, "[Practice name]");
+  var who = ph(c.name, "[name]");
+  var how = ph(c.contact, "[phone or email]");
+  return [
+    { when:"A positive review",
+      text:"Thank you, [First name]. We are so pleased you were happy with your visit to " + practice + ". See you at your next check up." },
+    { when:"A negative review",
+      text:"We are sorry to hear this, and we take all feedback seriously. We are not able to discuss any individual's details publicly, but we would genuinely like to understand what happened and put it right. Please contact " + who + " on " + how + "." }
+  ];
+}
+
+function cardHtml(c){
+  var practice = ph(c.practice, "[Practice name]");
+  var who = ph(c.name, "us");
+  var addr = c.display || "[your review link]";
+  var qr = c.linkOk ? QR.svg(c.url, { quiet:4, dark:"#0A0A0A", light:"#FFFFFF" }) : "";
+  return '<div class="card">'
+    + (qr ? '<div class="c-qr">' + qr + '</div>' : '')
+    + '<p class="c-name">' + esc(practice) + '</p>'
+    + '<p class="c-ask">Would you leave us an honest review?</p>'
+    + '<ol>'
+    + '<li>Point your phone camera at the square, or type this in:<span class="c-url">' + esc(addr) + '</span></li>'
+    + '<li>Tap the link that pops up.</li>'
+    + '<li>Sign in to Google. <strong>You do not need a Gmail address.</strong> Tap "Use my current email address instead" and use the email you already have.</li>'
+    + '<li>Tap the stars, write a sentence or two, then tap Post.</li>'
+    + '</ol>'
+    + '<p class="c-foot">Stuck at any point? Ask ' + esc(who) + ' next time you are in and we will happily walk you through it on your own phone.</p>'
+    + '</div>';
+}
+function esc(s){
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function copyText(text, btn){
+  function done(ok){
+    var note = btn.parentNode.querySelector(".copied");
+    if(!note){ note = el("span","copied"); btn.parentNode.appendChild(note); }
+    note.textContent = ok ? "Copied" : "Could not copy. Select the text above and copy it by hand.";
+    clearTimeout(btn._t);
+    btn._t = setTimeout(function(){ if(note) note.textContent=""; }, 2600);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ legacy(); });
+  } else legacy();
+  function legacy(){
+    try{
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly","");
+      ta.style.position="fixed"; ta.style.top="-1000px";
+      document.body.appendChild(ta); ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      done(ok);
+    }catch(e){ done(false); }
+  }
+}
+function addCopy(host, getText, label){
+  var row = el("div","rowbtns");
+  var b = el("button","btn", label || "Copy");
+  b.type="button";
+  b.addEventListener("click", function(){ copyText(getText(), b); });
+  row.appendChild(b);
+  host.appendChild(row);
+  return row;
+}
+
+function renderTools(){
+  var host = byId("tools");
+  host.innerHTML = "";
+  var c = ctx();
+  TOOLS.forEach(function(t){
+    var box = el("div","tool"); box.id = t.id;
+    var head = el("div","tool-head");
+    head.appendChild(el("h3", null, t.title));
+    var ready = t.build ? !t.build(c).empty : c.linkOk;
+    var note = el("span","tool-note" + (ready ? " made" : ""), ready ? "Ready" : "Waiting on your details");
+    head.appendChild(note);
+    box.appendChild(head);
+
+    var body = el("div","tool-body");
+    body.appendChild(el("p", null, t.intro));
+
+    if(t.qr){
+      var wrap = el("div","qr-wrap");
+      var qbox = el("div","qr-box");
+      if(c.linkOk){
+        qbox.innerHTML = QR.svg(c.url, { quiet:4, dark:"#0A0A0A", light:"#FFFFFF" });
+      } else {
+        qbox.className = "qr-box empty";
+        qbox.textContent = "Your QR code appears here once your review link is in.";
+      }
+      wrap.appendChild(qbox);
+      var side = el("div","qr-side");
+      side.appendChild(el("p", null, "To save it on a computer: right-click the code and choose Save image as. On a phone: press and hold it, then choose Save image or Add to Photos. Send that file to whoever does your printing."));
+      side.appendChild(el("p", null, "Print it at least 2cm across for a card and 4cm for a window sticker, always with the written address next to it. Roughly 18% of people who scan QR codes are 55 or over, so for your patients the code is the shortcut, not the route."));
+      wrap.appendChild(side);
+      body.appendChild(wrap);
+    } else if(t.card){
+      var stage = el("div");
+      stage.innerHTML = cardHtml(c);
+      body.appendChild(stage);
+      var row = el("div","rowbtns");
+      row.style.marginTop = "14px";
+      var pb = el("button","btn","Print this card"); pb.type="button";
+      pb.addEventListener("click", function(){ printCard(); });
+      row.appendChild(pb);
+      var cb = el("button","btn ghost","Copy the wording"); cb.type="button";
+      cb.addEventListener("click", function(){
+        copyText(stage.textContent.replace(/\s*\n\s*/g,"\n").trim(), cb);
+      });
+      row.appendChild(cb);
+      body.appendChild(row);
+    } else if(t.scripts){
+      scriptSet(c).forEach(function(s){
+        body.appendChild(el("p", null, s.when));
+        body.lastChild.style.cssText = "font-size:12px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px;";
+        var o = el("div","output", s.text);
+        body.appendChild(o);
+        addCopy(body, function(){ return s.text; });
+      });
+    } else if(t.replies){
+      replySet(c).forEach(function(s){
+        body.appendChild(el("p", null, s.when));
+        body.lastChild.style.cssText = "font-size:12px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px;";
+        var o = el("div","output", s.text);
+        body.appendChild(o);
+        addCopy(body, function(){ return s.text; });
+      });
+      body.appendChild(el("p", null, "Vary the wording every time. Half of consumers are put off by a reply that reads like a template, and a run of identical replies is obvious at a glance."));
+      body.lastChild.style.marginTop = "14px";
+    } else {
+      var res = t.build(c);
+      if(res.empty){
+        body.appendChild(el("div","output empty", res.empty));
+      } else {
+        var out = el("div","output" + (res.mono ? " link" : ""), res.body);
+        body.appendChild(out);
+        var row2 = addCopy(body, function(){ return res.body; });
+        if(res.count){
+          /* count what actually gets sent, with a real name in place of the
+             placeholder, rather than the placeholder itself */
+          var real = res.body.replace("[First name]", "Margaret");
+          var n = real.length;
+          var parts = n <= 160 ? 1 : Math.ceil(n / 153);
+          var cc = el("span","charcount" + (parts > 1 ? " over" : ""));
+          cc.textContent = "About " + n + " characters with a typical first name, so it sends as "
+            + parts + (parts === 1 ? " text" : " texts") + ".";
+          if(!c.shortLink && c.url){
+            var saving = c.url.length - Math.max(String(ph(c.practice,"yourpractice")).replace(/[^a-z0-9]/gi,"").length + 18, 20);
+            if(saving > 8) cc.textContent += " A short link would save roughly " + saving + " of them.";
+          }
+          row2.appendChild(cc);
+        }
+        if(res.foot){
+          body.appendChild(el("p", null, res.foot));
+          body.lastChild.style.cssText = "margin-top:12px;font-size:13.5px;color:var(--muted);";
+        }
+      }
+    }
+    box.appendChild(body);
+    host.appendChild(box);
+  });
+}
+
+function printCard(){
+  var stage = byId("printStage");
+  stage.innerHTML = cardHtml(ctx());
+  document.body.classList.add("printing-card");
+  try{ window.print(); }
+  catch(e){ alert("Your browser blocked printing from here. Use its own Print option, usually Ctrl+P or Cmd+P."); }
+  setTimeout(function(){ document.body.classList.remove("printing-card"); }, 500);
+}
+
+/* ============================================================
+   The scorecard
+   ============================================================ */
+
+function buildItem(item, kind){
+  var wrap = el("div", "item" + (kind === "guard" ? " guard" : ""));
+  wrap.dataset.id = item.id;
+
+  var head = el("div","item-head");
+  var body = el("div","item-body");
+  body.appendChild(el("p","item-label", item.t));
+  var tag = el("span","item-tag");
+  tag.dataset.base = kind === "guard" ? "Guardrail" : item.w + (item.w === 1 ? " point" : " points");
+  tag.textContent = tag.dataset.base;
+  body.appendChild(tag);
+
+  var choice = el("div","choice");
+  choice.setAttribute("role","group");
+  choice.setAttribute("aria-label", item.t);
+  var yes = el("button","opt-yes", kind === "guard" ? "We're clear" : "Yes");
+  var no  = el("button","opt-no",  kind === "guard" ? "We do this" : "Not yet");
+  yes.type = "button"; no.type = "button";
+  yes.addEventListener("click", function(){ set(item.id, state.answers[item.id] === "yes" ? null : "yes"); });
+  no.addEventListener("click",  function(){ set(item.id, state.answers[item.id] === "no"  ? null : "no"); });
+  choice.appendChild(yes); choice.appendChild(no);
+  head.appendChild(body); head.appendChild(choice);
+  wrap.appendChild(head);
+
+  var foot = el("div","item-foot");
+  if(item.how){
+    var d = el("details","drawer");
+    var sm = el("summary", null, kind === "guard" ? "What does this look like?" : "How do I do this?");
+    d.appendChild(sm);
+    var db = el("div","drawer-body");
+    String(item.how).split("\n").forEach(function(par){ db.appendChild(el("p", null, par)); });
+    d.appendChild(db);
+    foot.appendChild(d);
+  }
+  var fw = el("div","fact-wrap");
+  var fi = el("div","fact-inner");
+  var fact = el("div","fact");
+  fact.appendChild(el("span","fact-mark"));
+  var ft = el("div");
+  ft.appendChild(el("span","fact-label", kind === "guard" ? "Why that matters" : "Why that works"));
+  ft.appendChild(el("p", null, item.f));
+  fact.appendChild(ft);
+  fi.appendChild(fact); fw.appendChild(fi);
+  foot.appendChild(fw);
+  wrap.appendChild(foot);
+  return wrap;
+}
+
+function scoreEcho(){
+  var e = el("div","score-echo");
+  e.innerHTML = '<b class="echo-num">0</b><span>/100</span><span class="echo-band"></span>';
+  return e;
+}
+
+function render(){
+  var main = byId("main");
+  var counter = 0;
+
+  var gSec = el("section","sec");
+  var gHead = el("div","sec-head");
+  gHead.appendChild(el("h3", null, "First, the eight lines you don't cross"));
+  gHead.appendChild(el("span","sec-weight", "No points. They decide whether the rest counts."));
+  gSec.appendChild(gHead);
+  gSec.appendChild(el("p","sec-intro","Asking patients for reviews is explicitly allowed. What changed in 2026 is how you may ask. Confirm these eight and the rest of the scorecard is safe ground. Answer we do this to any of them and your score is capped until it is fixed."));
+  var gItems = el("div","items");
+  GUARDRAILS.forEach(function(g){
+    gItems.appendChild(buildItem(g,"guard"));
+    if(++counter % 3 === 0) gItems.appendChild(scoreEcho());
+  });
+  gSec.appendChild(gItems);
+  main.appendChild(gSec);
+
+  SECTIONS.forEach(function(sec){
+    var s = el("section","sec");
+    var head = el("div","sec-head");
+    head.appendChild(el("h3", null, sec.name));
+    var w = el("span","sec-weight sec-weight--pts");
+    var b = el("b"); b.id = "sc-" + sec.id; b.textContent = "0";
+    w.appendChild(b);
+    w.appendChild(document.createTextNode(" of " + sec.pts + " points"));
+    head.appendChild(w);
+    s.appendChild(head);
+    s.appendChild(el("p","sec-intro", sec.intro));
+    var items = el("div","items");
+    sec.items.forEach(function(i){
+      items.appendChild(buildItem(i,"item"));
+      if(++counter % 3 === 0) items.appendChild(scoreEcho());
+    });
+    s.appendChild(items);
+    main.appendChild(s);
+  });
+}
+
+function set(id, val){
+  if(val === null) delete state.answers[id]; else state.answers[id] = val;
+  if(AUTO_IDS.indexOf(id) !== -1) state.overrides[id] = true;
+  save();
+  paint(true);
+}
+
+/* items this page has genuinely done on their behalf */
+function applyAuto(){
+  var c = ctx();
+  AUTO_IDS.forEach(function(id){
+    if(state.overrides[id]) return;
+    var earned = false;
+    if(id === "f1" || id === "f3") earned = c.linkOk;
+    if(id === "s2") earned = c.ready;
+    if(id === "r2") earned = !!(c.name && c.contact);
+    if(earned) state.answers[id] = "yes";
+    else if(state.answers[id] === "yes") delete state.answers[id];
+  });
+}
+
+var BANDS = [
+  {min:100, name:"Full marks",            sub:"Now hold the pace. Steady beats fast, every time."},
+  {min:85,  name:"Best reviewed in town", sub:"The system runs itself. Keep replying and keep the pace honest."},
+  {min:70,  name:"Engine running",        sub:"The hard part is done. Close the gaps and it compounds."},
+  {min:50,  name:"The ask is landing",    sub:"You are past the tipping point. Automate and pace it next."},
+  {min:25,  name:"Asking, sometimes",     sub:"Make the ask a fixed step rather than a decision, and the number jumps."},
+  {min:1,   name:"Word of mouth only",    sub:"Start with the collection ask and the same day text. Everything else supports those two."},
+  {min:0,   name:"Not started",           sub:"Fill in your details above and four actions tick themselves."}
+];
+
+function findItem(id){
+  for(var i=0;i<SECTIONS.length;i++)
+    for(var j=0;j<SECTIONS[i].items.length;j++)
+      if(SECTIONS[i].items[j].id === id) return SECTIONS[i].items[j];
+  return null;
+}
+
+function paint(animate){
+  applyAuto();
+
+  var raw = 0;
+  SECTIONS.forEach(function(sec){
+    var sub = 0;
+    sec.items.forEach(function(i){ if(state.answers[i.id] === "yes") sub += i.w; });
+    raw += sub;
+    var n = byId("sc-" + sec.id);
+    if(n) n.textContent = sub;
+  });
+
+  var breaches = GUARDRAILS.filter(function(g){ return state.answers[g.id] === "no"; });
+  var confirmed = GUARDRAILS.filter(function(g){ return state.answers[g.id] === "yes"; }).length;
+  var capped = breaches.length > 0;
+  var score = capped ? Math.min(raw, CAP) : raw;
+
+  var nodes = document.querySelectorAll(".item");
+  for(var k=0;k<nodes.length;k++){
+    var node = nodes[k];
+    var id = node.dataset.id;
+    var v = state.answers[id];
+    node.classList.toggle("yes", v === "yes");
+    var btns = node.querySelectorAll(".choice button");
+    btns[0].setAttribute("aria-pressed", v === "yes" ? "true" : "false");
+    btns[1].setAttribute("aria-pressed", v === "no" ? "true" : "false");
+    var isGuard = node.classList.contains("guard");
+    var showFact = isGuard ? (v === "yes" || v === "no") : v === "yes";
+    node.querySelector(".fact-wrap").classList.toggle("open", showFact);
+    var tag = node.querySelector(".item-tag");
+    var isAuto = AUTO_IDS.indexOf(id) !== -1 && !state.overrides[id] && v === "yes";
+    tag.textContent = tag.dataset.base + (isAuto ? "  ·  DONE FOR YOU" : "");
+  }
+
+  var scoreEl = byId("score"), sbNum = byId("sbNum");
+  if(animate && scoreEl.textContent !== String(score)){
+    [scoreEl, sbNum].forEach(function(n){
+      n.classList.remove("bump"); void n.offsetWidth; n.classList.add("bump");
+    });
+  }
+  scoreEl.textContent = score;
+  sbNum.textContent = score;
+  byId("fill").style.width = score + "%";
+  byId("sbFill").style.width = score + "%";
+
+  var band = null;
+  for(var i=0;i<BANDS.length;i++){ if(score >= BANDS[i].min){ band = BANDS[i]; break; } }
+  byId("band").textContent = band.name;
+  byId("sbBand").textContent = band.name;
+  byId("sub").textContent = capped
+    ? "A guardrail is breached. Nothing above " + CAP + " counts until you fix it."
+    : band.sub;
+
+  var echoes = document.querySelectorAll(".score-echo");
+  for(var e=0;e<echoes.length;e++){
+    echoes[e].querySelector(".echo-num").textContent = score;
+    echoes[e].querySelector(".echo-band").textContent = band.name;
+  }
+
+  var risk = byId("risk"), rs = byId("riskState"), rn = byId("riskNote");
+  risk.classList.remove("clear","breach");
+  if(capped){
+    risk.classList.add("breach");
+    rs.textContent = breaches.length === 1 ? "One guardrail breached" : breaches.length + " guardrails breached";
+    rn.textContent = "Fix this before anything else. " + breaches[0].t;
+  } else if(confirmed === GUARDRAILS.length){
+    risk.classList.add("clear");
+    rs.textContent = "All eight clear";
+    rn.textContent = "Compliant on Google policy, the DMCCA and patient confidentiality. Re-check when the policy moves.";
+  } else {
+    rs.textContent = confirmed + " of " + GUARDRAILS.length + " confirmed";
+    rn.textContent = "Work through the guardrails before the rest of the score means anything.";
+  }
+
+  var moves = byId("moves");
+  moves.innerHTML = "";
+  var nextLine = "";
+  if(capped){
+    breaches.slice(0,3).forEach(function(b){
+      var li = document.createElement("li");
+      li.appendChild(el("span","w","Fix"));
+      li.appendChild(el("span", null, b.t));
+      moves.appendChild(li);
+    });
+    nextLine = "<b>Fix first:</b> " + esc(breaches[0].t);
+  } else {
+    var pending = [];
+    SECTIONS.forEach(function(sec){ sec.items.forEach(function(i){
+      if(state.answers[i.id] !== "yes") pending.push(i);
+    }); });
+    pending.sort(function(a,b){ return b.w - a.w; });
+    if(pending.length === 0){
+      var li2 = document.createElement("li");
+      li2.appendChild(el("span","done-note","All twenty six done. Hold the pace, reply within 48 hours, and come back to this in three months."));
+      moves.appendChild(li2);
+      nextLine = "All twenty six done. Hold the pace and reply within 48 hours.";
+    } else {
+      pending.slice(0,3).forEach(function(i){
+        var li3 = document.createElement("li");
+        li3.appendChild(el("span","w","+" + i.w));
+        li3.appendChild(el("span", null, i.t));
+        moves.appendChild(li3);
+      });
+      nextLine = "<b>+" + pending[0].w + "</b> " + esc(pending[0].t);
+    }
+  }
+  byId("sbNext").innerHTML = nextLine;
+}
+
+/* ============================================================
+   Setup wiring
+   ============================================================ */
+
+var FIELDS = { fPractice:"practice", fTown:"town", fName:"name", fContact:"contact", fLink:"link", fShort:"short" };
+
+function paintLinkState(){
+  var box = byId("linkState");
+  var v = byId("fLink").value;
+  var r = resolveLink(v);
+  box.className = "linkstate";
+  if(r.empty){ box.textContent = ""; return; }
+  if(!r.ok){ box.className = "linkstate bad"; box.textContent = r.why; return; }
+  box.className = "linkstate good";
+  box.innerHTML = "Got it. Using " + esc(r.what) + ":<br><code>" + esc(r.url) + "</code>"
+    + (r.warn ? '<br><span style="color:var(--warn)">' + esc(r.warn) + "</span>" : "");
+}
+
+function wireSetup(){
+  Object.keys(FIELDS).forEach(function(domId){
+    var input = byId(domId), key = FIELDS[domId];
+    if(state.setup[key]) input.value = state.setup[key];
+    input.addEventListener("input", function(){
+      state.setup[key] = input.value;
+      save();
+      if(domId === "fLink") paintLinkState();
+      renderTools();
+      paint(true);
+    });
+  });
+  paintLinkState();
+}
+
+/* ============================================================
+   Sticky score, including the frame that cannot scroll
+   ============================================================ */
+
+function checkHost(){
+  /* When this page is embedded in a frame stretched to its full content
+     height, the scrolling happens outside the page and neither sticky nor
+     fixed can fire. In that case the inline score echoes take over. */
+  var doc = document.documentElement;
+  var expanded = window.innerHeight >= doc.scrollHeight - 4 && doc.scrollHeight > 1200;
+  doc.classList.toggle("host-expanded", expanded);
+}
+
+render();
+wireSetup();
+renderTools();
+paint(false);
+checkHost();
+window.addEventListener("resize", checkHost);
+setTimeout(checkHost, 400);
+
+var reset = byId("reset"), armed = false, armTimer = null;
+reset.addEventListener("click", function(){
+  if(!armed){
+    armed = true;
+    reset.textContent = "Tap again to clear everything";
+    reset.classList.add("armed");
+    armTimer = setTimeout(function(){
+      armed = false; reset.textContent = "Clear all answers"; reset.classList.remove("armed");
+    }, 3500);
+    return;
+  }
+  clearTimeout(armTimer);
+  armed = false; reset.textContent = "Clear all answers"; reset.classList.remove("armed");
+  state = { answers:{}, overrides:{}, setup:{} };
+  save();
+  Object.keys(FIELDS).forEach(function(d){ byId(d).value = ""; });
+  paintLinkState();
+  renderTools();
+  paint(true);
+});
+</script>

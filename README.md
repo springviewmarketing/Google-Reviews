@@ -160,3 +160,63 @@ Every other colour pair in the system passes AA as specified.
 - Review compliance stated explicitly: no gating, no incentivising
 - No horizontal scroll at 390px; wide tables scroll inside their own container
 - All contrast pairs pass WCAG AA
+
+## `review-scorecard.html`, the review scorecard tool
+
+A standalone, single-file tool for independent opticians. Two halves: a
+toolkit that builds their assets for them, and a weighted scorecard that
+scores what is left.
+
+**The toolkit.** Six inputs (practice, town, a contact name, a phone or
+email, the Google review link and an optional short link) generate the
+review link, a QR code, a printable patient card, the same-day text, the
+follow-up email, an email signature line, four counter scripts and two
+review replies. All copy-to-clipboard. The link box accepts a full
+Google link, a bare Place ID, a Maps URL containing one, or a g.page
+link, and explains in plain terms what to do when someone pastes a
+`maps.app.goo.gl` sharing link instead.
+
+Four scorecard actions tick themselves once the toolkit has genuinely
+produced the artefact (the link, the QR, the text template, the negative
+reply), which is 16 of the 100 points. Only artefact-creation items
+auto-tick. Anything describing a behaviour, such as actually sending the
+text, stays for the practice to claim. A manual click overrides and is
+remembered.
+
+Every one of the 26 actions carries a "How do I do this?" drawer written
+for someone who does not know what a QR code is or where a Business
+Profile lives.
+
+**The QR encoder** is written from scratch in the page, about 250 lines,
+byte mode, error correction level M, versions 1 to 15 with automatic mask
+selection. No library and no network call, so the code works offline and
+nothing about the practice is sent anywhere. Verified two ways: the
+generator polynomial, format-info and version-info bit tables match the
+published reference tables exactly, and 100 of 100 fuzzed payloads decode
+correctly through zxing, the decoder behind most phone cameras. OpenCV's
+detector fails a handful of mask-2 codes, but it fails reference
+libraries' output on the same inputs, so that is a detector limit rather
+than an encoder fault.
+
+**Scoring.** Weights follow yield against effort: the in-person ask (26)
+and the same-day text (22) carry the engine, and the 55+ section (16) is
+weighted above replying because that is where an optician's most valuable
+patients drop out. Eight compliance guardrails sit outside the 100 and
+cap the score at 45 while any is breached, because gating or incentivising
+is DMCCA exposure, not a shortfall in effort.
+
+**The score follows you down the page.** A sticky status bar carries the
+score, band, progress and next best move. When the page is embedded in a
+frame stretched to its full content height, the scroll happens outside
+the page and neither `sticky` nor `fixed` can fire, so the page detects
+that case and falls back to inline score readouts every three items,
+never more than about 875px apart.
+
+Answers and inputs save to `localStorage`, not to a server, so one link
+can go to every practice and each keeps its own private copy. Fonts come
+from Google Fonts rather than `fonts/` so the file works standalone
+wherever it is dropped; the landing page keeps its self-hosted copies.
+
+Every figure traces to the source pack, with practitioner-sourced numbers
+labelled as directional in the footer. Nothing in it goes to a practice
+without a human read first.
