@@ -1,34 +1,34 @@
 week_ending,client_id,client_name,place_name,is_client,place_id,total_reviews,rating,new_reviews,days_in_period,rank_by_total,rank_by_new,streak_weeks,pace_per_week,status
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Kemp & Kerrigan Opticians,yes,ChIJ1ZvvVgCBeUgRqcCb0rHUDLI,24,5,1,7,14,4,1,0.25,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Victoria J Smith Opticians LTD Sheffield,no,ChIJ7zWoCjaCeUgRV2QYl0q5fHA,336,5,2,7,1,1,1,2,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Ray-Lewis Opticians,no,ChIJbybQEG6CeUgRX5lbcztPubQ,133,5,0,7,2,5,0,0,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Alex Gage Family Optometrist (Woodseats),no,ChIJb15AMFSCeUgRwgdOnVVBzMs,84,4.9,0,7,3,6,0,0,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Daybell and Choo,no,ChIJ1zw7VWyCeUgRkvG-_32OKfY,81,4.6,0,7,4,7,0,0,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Lorraine Bonete Opticians,no,ChIJjzLae4uDeUgRljOwiL8z3QU,79,5,0,7,5,8,0,0.25,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Bird Opticians,no,ChIJe6OIEIKCeUgRAAoaGmo_Y68,66,4.8,2,7,6,2,1,0.75,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,David Inman Bespoke Opticians (Fulwood),no,ChIJh_iRSAuCeUgR5wP9mZLoP4E,62,4.9,1,7,7,3,1,1.25,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,David Inman Bespoke Opticians (Ecclesall),no,ChIJAZaWbhaCeUgRmWFBFovLrto,57,4.8,0,7,8,9,0,0.25,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Alex Gage Family Optometrist (Sandygate),no,ChIJfzmz3HSCeUgRJsr4_0QD86E,55,4.8,0,7,9,10,0,0.25,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Martin Johnson Opticians Ltd,no,ChIJKaT7tOp4eUgRCnIta4ae73A,41,4.6,0,7,10,11,0,1.75,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Premier Eyecare Opticians Sheffield,no,ChIJJypqR5N4eUgR3FByjSTsBh0,28,4.9,0,7,11,13,0,0.25,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Harveys Opticians,no,ChIJWyp6wGKCeUgRgVScnxZh_28,28,4.8,0,7,12,12,0,0,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Martyn Kemp Opticians (Herries Road),no,ChIJU810U1h4eUgR200onRs8cRI,25,4.5,0,7,13,14,0,0,ok
-2026-10-19T00:14:37.858Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,"The Eye Place - Dore, Sheffield",no,ChIJCzMbN3CBeUgRrZHVV-3qmsY,15,4.9,0,7,15,15,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Murgatroyd Holmes Opticians,yes,ChIJHbD_FLubeUgRvos7zInLEm0,35,5,2,7,4,3,3,2.25,ok
-2026-10-19T00:14:37.858Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Elliott & Heath Opticians and Audiologists,no,ChIJf4shtjqFeUgRaIEqMy3cru0,36,4.7,1,7,3,4,1,0.25,ok
-2026-10-19T00:14:37.858Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Parker Opticians,no,ChIJM1M5b-qZeUgRzdmRq0NRK9I,92,4.9,6,7,2,1,4,4,ok
-2026-10-19T00:14:37.858Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Insight Opticians,no,ChIJ_VrTJjeFeUgRR-xNjCdtCMk,111,5,3,7,1,2,1,0.75,ok
-2026-10-19T00:14:37.858Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Oculi Opticians,no,ChIJI7dXEMWFeUgR9YN8jf3-ZQc,23,5,0,7,5,5,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Watson & Jenkins Opticians Ltd,no,ChIJP380ZjeFeUgRyjZJTcs382E,21,4.6,0,7,6,6,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Portland Optical Group (Clowne),no,ChIJu6_iO-CYeUgRyrqYua_esYE,8,5,0,7,7,7,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Murgatroyd Opticians Ltd,yes,ChIJQwZWJ05zeUgRQ714j_cNuSM,17,4.9,1,7,6,2,3,1.5,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,T English Opticians,no,ChIJUdUfea51eUgR9tfX5Fuxdn0,11,4.2,0,7,8,8,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Priority Eyecare,no,ChIJ7Z3iX9ANeUgRPi_c6Z-jkpE,16,5,0,7,7,7,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Parkhurst and Co Styling Opticians (Mexborough),no,ChIJOaFZLbxzeUgRDMzyAp3OWdE,23,4.8,0,7,5,6,0,0.5,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Moorhouse Opticians,no,ChIJowdhiaJzeUgR71WBv8ktbTA,39,5,0,7,4,5,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Wickersley Eye Clinic,no,ChIJ14hlG651eUgRlKygWMbRsXs,48,4.9,0,7,3,4,0,0.25,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Staples Opticians & Hearing Care,no,ChIJv3h2FnBxeUgR_LSl2KObTzA,91,4.9,0,7,2,3,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Cotler & Bell Opticians,no,ChIJmVWDaNANeUgRWTnO4aRrRY0,106,4.8,4,7,1,1,2,1.25,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Dudley & Severn Opticians,no,ChIJOzbSYd4KeUgRFQlQhdWA86I,10,4.9,0,7,9,9,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,BRUMPTON OPTICIANS LTD,no,ChIJJ2nHst4KeUgRGh3ajwA0Gg4,9,4.4,0,7,11,10,0,0,ok
-2026-10-19T00:14:37.858Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Martyn Kemp Opticians,no,ChIJTw4EG7J2eUgRrxaHKXorEDg,9,4.6,0,7,10,11,0,0,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Kemp & Kerrigan Opticians,yes,ChIJ1ZvvVgCBeUgRqcCb0rHUDLI,26,5,2,7,13,4,2,0.75,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Victoria J Smith Opticians LTD Sheffield,no,ChIJ7zWoCjaCeUgRV2QYl0q5fHA,340,5,4,7,1,1,2,3,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Ray-Lewis Opticians,no,ChIJbybQEG6CeUgRX5lbcztPubQ,133,5,0,7,2,9,0,0,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Alex Gage Family Optometrist (Woodseats),no,ChIJb15AMFSCeUgRwgdOnVVBzMs,85,4.9,1,7,3,5,1,0.5,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Daybell and Choo,no,ChIJ1zw7VWyCeUgRkvG-_32OKfY,84,4.6,3,7,4,2,1,1.5,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Lorraine Bonete Opticians,no,ChIJjzLae4uDeUgRljOwiL8z3QU,80,5,1,7,5,6,1,0.25,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Bird Opticians,no,ChIJe6OIEIKCeUgRAAoaGmo_Y68,66,4.8,0,7,6,10,0,0.5,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,David Inman Bespoke Opticians (Fulwood),no,ChIJh_iRSAuCeUgR5wP9mZLoP4E,62,4.9,0,7,7,11,0,0.75,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,David Inman Bespoke Opticians (Ecclesall),no,ChIJAZaWbhaCeUgRmWFBFovLrto,57,4.8,0,7,8,12,0,0,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Alex Gage Family Optometrist (Sandygate),no,ChIJfzmz3HSCeUgRJsr4_0QD86E,56,4.8,1,7,9,7,1,0.5,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Martin Johnson Opticians Ltd,no,ChIJKaT7tOp4eUgRCnIta4ae73A,43,4.7,2,7,10,3,1,0.5,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Premier Eyecare Opticians Sheffield,no,ChIJJypqR5N4eUgR3FByjSTsBh0,28,4.9,0,7,11,14,0,0,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Harveys Opticians,no,ChIJWyp6wGKCeUgRgVScnxZh_28,28,4.8,0,7,12,13,0,0,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,Martyn Kemp Opticians (Herries Road),no,ChIJU810U1h4eUgR200onRs8cRI,26,4.5,1,7,14,8,1,0.25,ok
+2026-10-26T00:27:33.075Z,kemp-kerrigan-opticians,Kemp & Kerrigan Opticians,"The Eye Place - Dore, Sheffield",no,ChIJCzMbN3CBeUgRrZHVV-3qmsY,15,4.9,0,7,15,15,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Murgatroyd Holmes Opticians,yes,ChIJHbD_FLubeUgRvos7zInLEm0,35,5,0,7,4,4,0,2.25,ok
+2026-10-26T00:27:33.075Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Elliott & Heath Opticians and Audiologists,no,ChIJf4shtjqFeUgRaIEqMy3cru0,36,4.7,0,7,3,3,0,0.25,ok
+2026-10-26T00:27:33.075Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Parker Opticians,no,ChIJM1M5b-qZeUgRzdmRq0NRK9I,95,4.9,3,7,2,1,5,4,ok
+2026-10-26T00:27:33.075Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Insight Opticians,no,ChIJ_VrTJjeFeUgRR-xNjCdtCMk,111,5,0,7,1,2,0,0.75,ok
+2026-10-26T00:27:33.075Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Oculi Opticians,no,ChIJI7dXEMWFeUgR9YN8jf3-ZQc,23,5,0,7,5,5,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Watson & Jenkins Opticians Ltd,no,ChIJP380ZjeFeUgRyjZJTcs382E,21,4.6,0,7,6,6,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-holmes-opticians,Murgatroyd Holmes Opticians,Portland Optical Group (Clowne),no,ChIJu6_iO-CYeUgRyrqYua_esYE,8,5,0,7,7,7,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Murgatroyd Opticians Ltd,yes,ChIJQwZWJ05zeUgRQ714j_cNuSM,19,4.9,2,7,6,1,4,2,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,T English Opticians,no,ChIJUdUfea51eUgR9tfX5Fuxdn0,11,4.2,0,7,8,8,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Priority Eyecare,no,ChIJ7Z3iX9ANeUgRPi_c6Z-jkpE,16,5,0,7,7,7,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Parkhurst and Co Styling Opticians (Mexborough),no,ChIJOaFZLbxzeUgRDMzyAp3OWdE,23,4.8,0,7,5,6,0,0.5,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Moorhouse Opticians,no,ChIJowdhiaJzeUgR71WBv8ktbTA,39,5,0,7,4,5,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Wickersley Eye Clinic,no,ChIJ14hlG651eUgRlKygWMbRsXs,48,4.9,0,7,3,4,0,0.25,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Staples Opticians & Hearing Care,no,ChIJv3h2FnBxeUgR_LSl2KObTzA,91,4.9,0,7,2,3,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Cotler & Bell Opticians,no,ChIJmVWDaNANeUgRWTnO4aRrRY0,107,4.8,1,7,1,2,3,1.5,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Dudley & Severn Opticians,no,ChIJOzbSYd4KeUgRFQlQhdWA86I,10,4.9,0,7,9,9,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,BRUMPTON OPTICIANS LTD,no,ChIJJ2nHst4KeUgRGh3ajwA0Gg4,9,4.4,0,7,11,10,0,0,ok
+2026-10-26T00:27:33.075Z,murgatroyd-opticians-ltd,Murgatroyd Opticians Ltd,Martyn Kemp Opticians,no,ChIJTw4EG7J2eUgRrxaHKXorEDg,9,4.6,0,7,10,11,0,0,ok
